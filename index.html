@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Parallex — A Website That Brings You Customers</title>
-<meta name="description" content="Custom-built websites for established businesses. Strategy first. Design second. Built to convert." />
+<title>Parallex — A Website That Wins Customers, Not Just Clicks</title>
+<meta name="description" content="Custom, conversion-focused websites for growing businesses — in English and French. Strategy first. Design second. Built to convert." />
 <link rel="icon" type="image/png" href="favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,6 +61,7 @@
     color:var(--blue);margin-bottom:20px;
   }
   .eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--blue),transparent)}
+  .eyebrow::after{content:"";width:26px;height:1px;background:linear-gradient(90deg,transparent,var(--blue))}
 
   h1,h2,h3{font-family:var(--fh);font-weight:400;line-height:1.06;letter-spacing:-.03em;color:var(--ink)}
   .accent{color:var(--gold)}
@@ -138,9 +139,9 @@
   .hero-cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:44px}
   .rating-inline{display:flex;align-items:center;gap:10px;color:var(--body);font-size:14px}
   .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
-  .stats{display:flex;gap:14px;flex-wrap:wrap}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   .stat{
-    flex:1 1 0;min-width:140px;
+    min-width:0;
     background:linear-gradient(180deg,var(--bg2),rgba(11,15,26,.4));
     border:1px solid var(--bd2);border-radius:16px;padding:20px;
     box-shadow:0 18px 40px -28px rgba(77,141,255,.5);
@@ -167,6 +168,8 @@
   }
   .field input::placeholder{color:#3f4f64}
   .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%2356677e' stroke-width='2'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  /* opaque dropdown list so options are readable on desktop (native popup ignored the translucent select bg) */
+  .field select option{background:#172A46;color:#fff}
   .field input:focus,.field select:focus{outline:none;border-color:var(--blue);background:rgba(77,141,255,.06);box-shadow:0 0 0 3px rgba(77,141,255,.15)}
   .phone-row{display:grid;grid-template-columns:96px 1fr;gap:10px}
   .form-card .btn{width:100%;margin-top:6px}
@@ -283,6 +286,11 @@
   .tcard q{quotes:none;color:#c4d0e0;font-size:14.5px;line-height:1.65}
   .tcard q::before,.tcard q::after{content:""}
 
+  /* why-parallex value grid — reuses .tcard / .avatar chrome */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .why-grid .tcard .who b{font-size:16px;letter-spacing:-.01em;line-height:1.25}
+  .why-grid .avatar svg{display:block}
+
   .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:34px}
   .gallery figure{border-radius:14px;overflow:hidden;aspect-ratio:1/1;border:1px solid var(--bd2);position:relative}
   .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
@@ -329,7 +337,7 @@
   /* ---------- FOOTER ---------- */
   footer{padding-top:var(--py);position:relative;overflow:hidden}
   .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:54px;border-bottom:1px solid var(--bd2)}
-  .foot-logo{height:126px;width:auto;filter:brightness(0) invert(1);margin-bottom:24px}
+  .foot-logo{height:150px;width:auto;filter:brightness(0) invert(1);margin-bottom:24px}
   .foot-top h4{font-family:var(--fb);font-weight:700;font-size:15px;letter-spacing:.04em;margin-bottom:18px;color:#fff}
   .foot-col a,.foot-col p{display:block;color:var(--body);font-size:14px;margin-bottom:11px;transition:color .3s var(--ease)}
   .foot-col a:hover{color:var(--blue)}
@@ -363,6 +371,7 @@
     .hero-grid,.process-grid,.faq-grid,.connect-grid{grid-template-columns:1fr;gap:40px}
     .proj-grid{grid-template-columns:repeat(2,1fr)}
     .tgrid{grid-template-columns:repeat(2,1fr)}
+    .why-grid{grid-template-columns:repeat(2,1fr)}
     .gallery{grid-template-columns:repeat(3,1fr)}
     .foot-top{grid-template-columns:1fr 1fr}
     .connect{padding:40px}
@@ -375,6 +384,7 @@
     .nav-cta{display:none}
     .proj-grid{grid-template-columns:1fr}
     .tgrid{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr)}
     .foot-top{grid-template-columns:1fr}
     .stats{gap:10px}
@@ -415,19 +425,20 @@
     <div class="hero-grid">
       <div class="reveal">
         <span class="eyebrow" data-en="Parallex Web Studio" data-fr="Studio Web Parallex">Parallex Web Studio</span>
-        <h1 data-en="A Website That Brings You Customers, Not Just Compliments" data-fr="Un site web qui vous amène des clients, pas seulement des compliments">A Website That Brings You Customers, Not Just Compliments</h1>
-        <p class="lead" data-en="Custom-built sites for established businesses ready for a website that matches the level of their company. Strategy first. Design second. Built to convert." data-fr="Des sites sur mesure pour les entreprises établies, prêtes pour un site à la hauteur de leur réputation. La stratégie d'abord. Le design ensuite. Conçu pour convertir.">Custom-built sites for established businesses ready for a website that matches the level of their company. Strategy first. Design second. Built to convert.</p>
+        <h1 data-en="A Website That Wins <span class='accent'>Customers</span>, Not Just Clicks" data-fr="Un site web qui gagne des <span class='accent'>clients</span>, pas seulement des clics">A Website That Wins <span class="accent">Customers</span>, Not Just Clicks</h1>
+        <p class="lead" data-en="Custom websites for growing businesses, built to win customers. Strategy first. Design second. Handled entirely by us." data-fr="Des sites web sur mesure pour les entreprises en croissance, conçus pour gagner des clients. La stratégie d'abord. Le design ensuite. On s'occupe de tout.">Custom websites for growing businesses, built to win customers. Strategy first. Design second. Handled entirely by us.</p>
         <div class="hero-cta-row">
           <a href="#connect" class="btn btn-primary" data-en="Book a Strategy Call" data-fr="Réserver un appel stratégique">Book a Strategy Call</a>
           <div class="rating-inline">
-            <span class="stars">★★★★★</span>
-            <span data-en="4.9/5 from 80+ clients" data-fr="4,9/5 de plus de 80 clients">4.9/5 from 80+ clients</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#4D8DFF" stroke-width="2.2" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>
+            <span data-en="Free 30-minute strategy call — no pressure" data-fr="Appel stratégique gratuit de 30 minutes — sans pression">Free 30-minute strategy call — no pressure</span>
           </div>
         </div>
         <div class="stats">
-          <div class="stat"><b>150+</b><span data-en="websites built" data-fr="sites web créés">websites built</span></div>
-          <div class="stat"><b>2.3x</b><span data-en="avg. lift in 30 days" data-fr="hausse moy. en 30 jours">avg. lift in 30 days</span></div>
-          <div class="stat"><b>4.9/5</b><span data-en="from 80+ clients" data-fr="de plus de 80 clients">from 80+ clients</span></div>
+          <div class="stat"><b data-en="We make it easy" data-fr="On simplifie tout">We make it easy</b><span data-en="the technical stuff is on us" data-fr="on gère la technique">the technical stuff is on us</span></div>
+          <div class="stat"><b data-en="Under 2 wks" data-fr="Moins de 2 sem.">Under 2 wks</b><span data-en="start to finish" data-fr="du début à la fin">start to finish</span></div>
+          <div class="stat"><b data-en="Ongoing support" data-fr="Soutien continu">Ongoing support</b><span data-en="we're always here" data-fr="toujours là pour vous">we're always here</span></div>
+          <div class="stat"><b data-en="Competitive" data-fr="Compétitif">Competitive</b><span data-en="pricing, no surprises" data-fr="tarifs, sans surprise">pricing, no surprises</span></div>
         </div>
       </div>
 
@@ -449,15 +460,14 @@
               <select aria-label="Country code">
                 <option>+1</option><option>+44</option><option>+33</option><option>+61</option>
               </select>
-              <input type="tel" placeholder="(555) 000-0000" />
+              <input type="tel" placeholder="(514) 000-0000" />
             </div>
           </div>
           <div class="field">
             <label data-en="How did you hear about us?" data-fr="Comment nous avez-vous connus ?">How did you hear about us?</label>
             <select>
-              <option data-en="Facebook / Instagram" data-fr="Facebook / Instagram">Facebook / Instagram</option>
-              <option data-en="LinkedIn" data-fr="LinkedIn">LinkedIn</option>
               <option data-en="Google" data-fr="Google">Google</option>
+              <option data-en="LinkedIn" data-fr="LinkedIn">LinkedIn</option>
               <option data-en="Friend / Referral" data-fr="Ami / Recommandation">Friend / Referral</option>
               <option data-en="Other" data-fr="Autre">Other</option>
             </select>
@@ -469,67 +479,14 @@
     </div>
 
     <div class="trusted reveal">
-      <p data-en="Trusted by established brands" data-fr="La confiance de marques établies">Trusted by established brands</p>
+      <p data-en="Built on platforms you can trust" data-fr="Bâti sur des plateformes de confiance">Built on platforms you can trust</p>
       <div class="logos">
-        <span class="lg">Northwind</span>
-        <span class="lg">Velora</span>
-        <span class="lg">Maison&amp;Co</span>
-        <span class="lg">Ironside</span>
-        <span class="lg">Aperture</span>
-        <span class="lg">Quanta</span>
-        <span class="lg">Lumen</span>
+        <span class="lg">Webflow</span>
+        <span class="lg">WordPress</span>
+        <span class="lg">Shopify</span>
+        <span class="lg">Next.js</span>
+        <span class="lg">Framer</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section>
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow" style="justify-content:center" data-en="Recent Work" data-fr="Réalisations récentes">Recent Work</span>
-      <h2 data-en="Websites That Win Business" data-fr="Des sites qui font gagner des affaires">Websites That Win Business</h2>
-      <p data-en="Recent builds for established brands. Each project engineered to convert — not just to look good." data-fr="Des sites récents pour des marques établies. Chaque projet est conçu pour convertir, pas seulement pour bien paraître.">Recent builds for established brands. Each project engineered to convert — not just to look good.</p>
-    </div>
-
-    <div class="proj-grid">
-      <article class="browser reveal">
-        <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">veloraskincare.com</span></div>
-        <img class="shot" src="https://images.unsplash.com/photo-1780242020392-7e4d3d9c99a4?auto=format&fit=crop&q=80&w=800&h=550" alt="Velora Skincare website" />
-        <div class="meta"><b>Velora Skincare</b><span class="tag" data-en="E-Commerce" data-fr="Commerce en ligne">E-Commerce</span></div>
-      </article>
-      <article class="browser reveal" style="transition-delay:.1s">
-        <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">ironsidebuild.ca</span></div>
-        <img class="shot" src="https://images.unsplash.com/photo-1768926968986-a88590ce5025?auto=format&fit=crop&q=80&w=800&h=550" alt="Ironside Build website" />
-        <div class="meta"><b>Ironside Build</b><span class="tag" data-en="Construction" data-fr="Construction">Construction</span></div>
-      </article>
-      <article class="browser reveal" style="transition-delay:.2s">
-        <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">maisonbistro.ca</span></div>
-        <img class="shot" src="https://images.unsplash.com/photo-1761474258547-dc58003d3f13?auto=format&fit=crop&q=80&w=800&h=550" alt="Maison Bistro website" />
-        <div class="meta"><b>Maison Bistro</b><span class="tag" data-en="Hospitality" data-fr="Hôtellerie">Hospitality</span></div>
-      </article>
-      <article class="browser reveal">
-        <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">northwindhealth.com</span></div>
-        <img class="shot" src="https://images.unsplash.com/photo-1758691463333-c79215e8bc3b?auto=format&fit=crop&q=80&w=800&h=550" alt="Northwind Health website" />
-        <div class="meta"><b>Northwind Health</b><span class="tag" data-en="Clinics" data-fr="Cliniques">Clinics</span></div>
-      </article>
-      <article class="browser reveal" style="transition-delay:.1s">
-        <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">getquanta.io</span></div>
-        <img class="shot" src="https://images.unsplash.com/photo-1774729200208-53562848bcbd?auto=format&fit=crop&q=80&w=800&h=550" alt="Quanta website" />
-        <div class="meta"><b>Quanta</b><span class="tag" data-en="SaaS" data-fr="SaaS">SaaS</span></div>
-      </article>
-      <article class="browser reveal" style="transition-delay:.2s">
-        <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="url">globaldiamond.ca</span></div>
-        <img class="shot" src="https://images.unsplash.com/photo-1672766392091-ed5024431d4a?auto=format&fit=crop&q=80&w=800&h=550" alt="Global Diamond website" />
-        <div class="meta"><b>Global Diamond</b><span class="tag" data-en="Fine Jewellery" data-fr="Joaillerie">Fine Jewellery</span></div>
-      </article>
-    </div>
-
-    <div class="proj-foot reveal">
-      <p data-en="Want a website like this for your business? Talk to us about what your site should be doing for you — and build it right." data-fr="Vous voulez un site comme celui-ci pour votre entreprise ? Parlons de ce que votre site devrait accomplir — et construisons-le comme il faut.">Want a website like this for your business? Talk to us about what your site should be doing for you — and build it right.</p>
-      <a href="#connect" class="link-arrow" data-en="See more work" data-fr="Voir plus de réalisations">See more work
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </a>
     </div>
   </div>
 </section>
@@ -546,32 +503,25 @@
             <div class="num">1</div>
             <div>
               <h3 data-en="Discovery &amp; Strategy" data-fr="Découverte et stratégie">Discovery &amp; Strategy</h3>
-              <p data-en="A deep-dive analysis yielding a positioning audit, sitemap, and conversion plan aligned with how your customers actually decide." data-fr="Une analyse approfondie produisant un audit de positionnement, un plan de site et une stratégie de conversion alignée sur les décisions réelles de vos clients.">A deep-dive analysis yielding a positioning audit, sitemap, and conversion plan aligned with how your customers actually decide.</p>
+              <p data-en="We start by getting to know your business, your customers, and what you want the site to do — then map out the plan. No tech know-how needed on your end; just tell us about your business and we take it from there." data-fr="Nous commençons par comprendre votre entreprise, vos clients et ce que vous attendez du site — puis nous traçons le plan. Aucune compétence technique requise de votre part : parlez-nous de votre entreprise et nous nous occupons du reste.">We start by getting to know your business, your customers, and what you want the site to do — then map out the plan. No tech know-how needed on your end; just tell us about your business and we take it from there.</p>
             </div>
           </div>
           <div class="step">
             <div class="num">2</div>
             <div>
-              <h3 data-en="Design" data-fr="Conception">Design</h3>
-              <p data-en="Custom design (no templates) with wireframe, mid-fi, and high-fi approval stages — all centered on conversion strategy." data-fr="Un design sur mesure (aucun gabarit) avec des étapes d'approbation filaire, moyenne et haute fidélité — centré sur la conversion.">Custom design (no templates) with wireframe, mid-fi, and high-fi approval stages — all centered on conversion strategy.</p>
+              <h3 data-en="Design &amp; Build" data-fr="Conception et développement">Design &amp; Build</h3>
+              <p data-en="We design and build your site to fit your business — no templates — fast-loading and sharp on every screen. You review it at each stage while we handle all the technical work behind the scenes." data-fr="Nous concevons et développons votre site selon votre entreprise — sans gabarit — rapide et impeccable sur tous les écrans. Vous le validez à chaque étape pendant que nous gérons toute la technique en coulisses.">We design and build your site to fit your business — no templates — fast-loading and sharp on every screen. You review it at each stage while we handle all the technical work behind the scenes.</p>
             </div>
           </div>
           <div class="step">
             <div class="num">3</div>
             <div>
-              <h3 data-en="Development" data-fr="Développement">Development</h3>
-              <p data-en="Hand-coded or platform-built solutions emphasizing fast load speeds, clean code, and device optimization with full QA testing." data-fr="Des solutions codées à la main ou bâties sur plateforme, axées sur la rapidité, un code propre et l'optimisation multi-appareils avec tests de qualité.">Hand-coded or platform-built solutions emphasizing fast load speeds, clean code, and device optimization with full QA testing.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">4</div>
-            <div>
-              <h3 data-en="Launch &amp; Handover" data-fr="Lancement et transfert">Launch &amp; Handover</h3>
-              <p data-en="Live deployment with migration, redirects, analytics setup, documentation, training, and a 30-day optimization window." data-fr="Mise en ligne avec migration, redirections, configuration analytique, documentation, formation et une fenêtre d'optimisation de 30 jours.">Live deployment with migration, redirects, analytics setup, documentation, training, and a 30-day optimization window.</p>
+              <h3 data-en="Launch &amp; Support" data-fr="Lancement et soutien">Launch &amp; Support</h3>
+              <p data-en="When you're happy, we put your site live and take care of every technical detail. You get two weeks of fine-tuning right after launch, plus ongoing support whenever you need it down the road." data-fr="Quand tout vous convient, nous mettons votre site en ligne et nous occupons de chaque détail technique. Vous bénéficiez de deux semaines d'ajustements juste après le lancement, ainsi que d'un soutien continu dès que vous en avez besoin par la suite.">When you're happy, we put your site live and take care of every technical detail. You get two weeks of fine-tuning right after launch, plus ongoing support whenever you need it down the road.</p>
             </div>
           </div>
         </div>
-        <p class="process-note" data-en="Timelines vary by project and availability. Speak to our team to check available slots." data-fr="Les délais varient selon le projet et la disponibilité. Parlez à notre équipe pour connaître les créneaux disponibles.">Timelines vary by project and availability. Speak to our team to check available slots.</p>
+        <p class="process-note" data-en="Most sites go live in less than two weeks, and we handle everything in between — no headaches on your end. Book a call to check current openings." data-fr="La plupart des sites sont en ligne en moins de deux semaines, et nous gérons tout entre-temps — aucun casse-tête de votre côté. Réservez un appel pour connaître nos disponibilités.">Most sites go live in less than two weeks, and we handle everything in between — no headaches on your end. Book a call to check current openings.</p>
         <div class="process-cta">
           <a href="#connect" class="btn btn-primary" data-en="Book a Strategy Call" data-fr="Réserver un appel stratégique">Book a Strategy Call</a>
         </div>
@@ -589,74 +539,40 @@
   </div>
 </section>
 
-<!-- INDUSTRIES -->
-<section>
+<!-- WHY PARALLEX -->
+<section id="why">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow" style="justify-content:center" data-en="Portfolio" data-fr="Portfolio">Portfolio</span>
-      <h2 data-en="Selected Work Across Industries" data-fr="Réalisations sélectionnées par secteur">Selected Work Across Industries</h2>
+      <span class="eyebrow" style="justify-content:center" data-en="Why Parallex" data-fr="Pourquoi Parallex">Why Parallex</span>
+      <h2 data-en="What You <span class='accent'>Actually</span> Get" data-fr="Ce que vous obtenez <span class='accent'>vraiment</span>">What You <span class="accent">Actually</span> Get</h2>
+      <p data-en="No inflated promises — just how we work and what's included when you build with us." data-fr="Pas de promesses gonflées — simplement notre façon de travailler et ce qui est inclus quand vous bâtissez avec nous.">No inflated promises — just how we work and what's included when you build with us.</p>
     </div>
 
-    <div class="indus-wrap reveal">
-      <div class="indus" id="indus">
-        <article class="icard"><img src="https://images.unsplash.com/photo-1601307003048-b8d446860618?auto=format&fit=crop&q=80&w=680&h=860" alt="" /><div class="ic-body"><span class="tag" data-en="E-Commerce" data-fr="Commerce en ligne">E-Commerce</span><h3 data-en="Velora Skincare" data-fr="Velora Skincare">Velora Skincare</h3><p data-en="A storefront rebuilt for 2.4x checkout conversion." data-fr="Une boutique repensée pour 2,4× plus de conversions.">A storefront rebuilt for 2.4x checkout conversion.</p></div></article>
-        <article class="icard"><img src="https://images.unsplash.com/photo-1600015091485-e8343c72d42d?auto=format&fit=crop&q=80&w=680&h=860" alt="" /><div class="ic-body"><span class="tag" data-en="Fine Jewellery" data-fr="Joaillerie">Fine Jewellery</span><h3 data-en="Global Diamond" data-fr="Global Diamond">Global Diamond</h3><p data-en="A luxury site that lifted revenue 25% in weeks." data-fr="Un site de luxe qui a fait grimper les revenus de 25 % en quelques semaines.">A luxury site that lifted revenue 25% in weeks.</p></div></article>
-        <article class="icard"><img src="https://images.unsplash.com/photo-1664530838743-494727bc7faa?auto=format&fit=crop&q=80&w=680&h=860" alt="" /><div class="ic-body"><span class="tag" data-en="Clinics" data-fr="Cliniques">Clinics</span><h3 data-en="Northwind Health" data-fr="Northwind Santé">Northwind Health</h3><p data-en="Bookings up 60% with a clearer patient journey." data-fr="Réservations en hausse de 60 % grâce à un parcours patient plus clair.">Bookings up 60% with a clearer patient journey.</p></div></article>
-        <article class="icard"><img src="https://images.unsplash.com/photo-1691425645869-75202766a58d?auto=format&fit=crop&q=80&w=680&h=860" alt="" /><div class="ic-body"><span class="tag" data-en="Construction" data-fr="Construction">Construction</span><h3 data-en="Ironside Build" data-fr="Ironside Build">Ironside Build</h3><p data-en="A trade brand that finally looks the part." data-fr="Une marque de métier qui a enfin l'allure qu'elle mérite.">A trade brand that finally looks the part.</p></div></article>
-        <article class="icard"><img src="https://images.unsplash.com/photo-1581093192442-337ba327eb2b?auto=format&fit=crop&q=80&w=680&h=860" alt="" /><div class="ic-body"><span class="tag" data-en="SaaS" data-fr="SaaS">SaaS</span><h3 data-en="Quanta" data-fr="Quanta">Quanta</h3><p data-en="A product site built to turn trials into plans." data-fr="Un site produit conçu pour transformer les essais en abonnements.">A product site built to turn trials into plans.</p></div></article>
-        <article class="icard"><img src="https://images.unsplash.com/photo-1647482770213-caa163d3c39c?auto=format&fit=crop&q=80&w=680&h=860" alt="" /><div class="ic-body"><span class="tag" data-en="Hospitality" data-fr="Hôtellerie">Hospitality</span><h3 data-en="Maison Bistro" data-fr="Maison Bistro">Maison Bistro</h3><p data-en="Reservations and brand, finally on the same table." data-fr="Réservations et image de marque enfin réunies.">Reservations and brand, finally on the same table.</p></div></article>
-      </div>
-    </div>
-
-    <div class="indus-ctrl reveal">
-      <button class="round-btn" id="indPrev" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button class="round-btn" id="indNext" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg></button>
-    </div>
-    <div class="indus-foot reveal">
-      <a href="#connect" class="btn btn-primary" data-en="Book a Strategy Call" data-fr="Réserver un appel stratégique">Book a Strategy Call</a>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section>
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow" style="justify-content:center" data-en="Reviews" data-fr="Témoignages">Reviews</span>
-      <h2 data-en="What Our Clients <span class='accent'>Actually</span> Say" data-fr="Ce que nos clients pensent <span class='accent'>vraiment</span>">What Our Clients <span class="accent">Actually</span> Say</h2>
-      <p data-en="Results speak louder. See what our clients experienced after launching websites built to perform, convert, and grow their business." data-fr="Les résultats parlent d'eux-mêmes. Découvrez ce que nos clients ont vécu après le lancement de sites conçus pour performer, convertir et faire croître leur entreprise.">Results speak louder. See what our clients experienced after launching websites built to perform, convert, and grow their business.</p>
-    </div>
-
-    <div class="tgrid">
+    <div class="why-grid">
       <article class="tcard reveal">
-        <div class="top"><div class="avatar">GD</div><div class="who"><b>Global Diamond</b><span data-en="Fine Jewellery · Montreal, QC" data-fr="Joaillerie · Montréal, QC">Fine Jewellery · Montreal, QC</span></div></div>
-        <div class="stars">★★★★★</div>
-        <q data-en="Before Parallex we had a dated site that wasn't converting. Within weeks of the redesign we saw a 25% lift in monthly revenue." data-fr="Avant Parallex, nous avions un site dépassé qui ne convertissait pas. Quelques semaines après la refonte, nous avons vu une hausse de 25 % du revenu mensuel.">Before Parallex we had a dated site that wasn't converting. Within weeks of the redesign we saw a 25% lift in monthly revenue.</q>
+        <div class="top"><div class="avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></svg></div><div class="who"><b data-en="Strategy before design" data-fr="La stratégie avant le design">Strategy before design</b></div></div>
+        <q data-en="Every project starts with positioning and a conversion plan — not a template. The look follows the strategy, never the other way around." data-fr="Chaque projet commence par un positionnement et un plan de conversion — pas un gabarit. Le design suit la stratégie, jamais l'inverse.">Every project starts with positioning and a conversion plan — not a template. The look follows the strategy, never the other way around.</q>
       </article>
-      <article class="tcard reveal" style="transition-delay:.08s">
-        <div class="top"><div class="avatar">OM</div><div class="who"><b>Omar Mansour</b><span data-en="Digital Marketing Consultant" data-fr="Consultant en marketing numérique">Digital Marketing Consultant</span></div></div>
-        <div class="stars">★★★★★</div>
-        <q data-en="I've worked with Parallex across multiple projects over several years and the quality never drops." data-fr="J'ai collaboré avec Parallex sur plusieurs projets pendant des années et la qualité ne faiblit jamais.">I've worked with Parallex across multiple projects over several years and the quality never drops.</q>
+      <article class="tcard reveal" style="transition-delay:.06s">
+        <div class="top"><div class="avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19l3-.8L19.4 6.8a1.8 1.8 0 0 0-2.5-2.5L5.5 15.7 5 19z"/><path d="M14.5 6.6l2.9 2.9"/></svg></div><div class="who"><b data-en="We help with the words" data-fr="On vous aide avec le contenu">We help with the words</b></div></div>
+        <q data-en="We tailor your site's content so it speaks to your customers — and if you don't have any yet, we'll create it for you." data-fr="Nous adaptons le contenu de votre site pour qu'il parle à vos clients — et si vous n'en avez pas encore, nous le créons pour vous.">We tailor your site's content so it speaks to your customers — and if you don't have any yet, we'll create it for you.</q>
       </article>
-      <article class="tcard reveal" style="transition-delay:.16s">
-        <div class="top"><div class="avatar">EK</div><div class="who"><b>Emma Kimmerly</b><span data-en="Brand Founder" data-fr="Fondatrice de marque">Brand Founder</span></div></div>
-        <div class="stars">★★★★★</div>
-        <q data-en="Creative, fast, and genuinely kind to work with. Parallex took my rough ideas and turned them into a site I'm proud to send people to." data-fr="Créatifs, rapides et vraiment agréables. Parallex a transformé mes idées brutes en un site que je suis fière de partager.">Creative, fast, and genuinely kind to work with. Parallex took my rough ideas and turned them into a site I'm proud to send people to.</q>
+      <article class="tcard reveal" style="transition-delay:.12s">
+        <div class="top"><div class="avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 16.5l5.5-5.5 3.5 3.5 7-7.5"/><path d="M16 6.5h4v4"/></svg></div><div class="who"><b data-en="Built to convert" data-fr="Conçu pour convertir">Built to convert</b></div></div>
+        <q data-en="Clear paths, fast load times, and copy that moves people to act. We design for customers, not just compliments." data-fr="Des parcours clairs, un chargement rapide et des textes qui poussent à l'action. Nous concevons pour les clients, pas seulement pour les compliments.">Clear paths, fast load times, and copy that moves people to act. We design for customers, not just compliments.</q>
+      </article>
+      <article class="tcard reveal" style="transition-delay:.18s">
+        <div class="top"><div class="avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.3 3.6 5.3 3.6 8.5S14.4 18.2 12 20.5c-2.4-2.3-3.6-5.3-3.6-8.5S9.6 5.8 12 3.5z"/></svg></div><div class="who"><b data-en="Bilingual by default" data-fr="Bilingue par défaut">Bilingual by default</b></div></div>
+        <q data-en="Every site ships in English and French, so you reach the whole market from day one." data-fr="Chaque site est livré en français et en anglais, pour rejoindre tout le marché dès le premier jour.">Every site ships in English and French, so you reach the whole market from day one.</q>
       </article>
       <article class="tcard reveal" style="transition-delay:.24s">
-        <div class="top"><div class="avatar">PG</div><div class="who"><b>Philippe Gauthier</b><span data-en="E-Commerce Founder" data-fr="Fondateur en commerce en ligne">E-Commerce Founder</span></div></div>
-        <div class="stars">★★★★★</div>
-        <q data-en="Great team, incredibly fast delivery and the content creation side blew us away." data-fr="Une équipe formidable, une livraison incroyablement rapide et un volet création de contenu qui nous a impressionnés.">Great team, incredibly fast delivery and the content creation side blew us away.</q>
+        <div class="top"><div class="avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><div class="who"><b data-en="Live in about two weeks" data-fr="En ligne en deux semaines">Live in about two weeks</b></div></div>
+        <q data-en="A focused process takes you from kickoff to launch in roughly two weeks — without cutting corners." data-fr="Un processus ciblé vous mène du démarrage au lancement en environ deux semaines — sans rien bâcler.">A focused process takes you from kickoff to launch in roughly two weeks — without cutting corners.</q>
       </article>
-    </div>
-
-    <div class="gallery reveal">
-      <figure><img src="https://images.unsplash.com/photo-1514960919797-5ff58c52e5ba?auto=format&fit=crop&q=80&w=500&h=500" alt="Client" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1517588632672-9758d6acba04?auto=format&fit=crop&q=80&w=500&h=500" alt="Client" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1542909168-6296a31d7689?auto=format&fit=crop&q=80&w=500&h=500" alt="Client" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1567141600768-881ed715e2ef?auto=format&fit=crop&q=80&w=500&h=500" alt="Client" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1595897950118-1037962bc920?auto=format&fit=crop&q=80&w=500&h=500" alt="Client" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1596087675850-350e5f6e87b3?auto=format&fit=crop&q=80&w=500&h=500" alt="Client" /></figure>
+      <article class="tcard reveal" style="transition-delay:.3s">
+        <div class="top"><div class="avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l7 2.8v5c0 4.6-3.2 7.5-7 8.7-3.8-1.2-7-4.1-7-8.7v-5l7-2.8z"/><path d="M9 12l2.2 2.2L15.2 10"/></svg></div><div class="who"><b data-en="We don't disappear at launch" data-fr="Nous restons après le lancement">We don't disappear at launch</b></div></div>
+        <q data-en="We stick around. Two weeks of close support after launch, plus ongoing support built in for the tweaks and changes that come up later." data-fr="Nous restons présents. Deux semaines de soutien rapproché après le lancement, et un soutien continu intégré pour les ajustements et les changements qui surviennent par la suite.">We stick around. Two weeks of close support after launch, plus ongoing support built in for the tweaks and changes that come up later.</q>
+      </article>
     </div>
   </div>
 </section>
@@ -667,39 +583,35 @@
     <div class="faq-grid">
       <div class="reveal">
         <span class="eyebrow" data-en="FAQ" data-fr="FAQ">FAQ</span>
-        <h2 class="sec-head" style="margin-bottom:30px" data-en="Questions You're Probably Already Thinking About" data-fr="Les questions que vous vous posez déjà">Questions You're Probably Already Thinking About</h2>
+        <h2 class="sec-head" style="margin-bottom:30px" data-en="Questions You're Probably Already Asking" data-fr="Les questions que vous vous posez sûrement déjà">Questions You're Probably Already Asking</h2>
         <div class="faq-list">
           <details class="faq" open>
-            <summary><span data-en="What industries do you work with?" data-fr="Avec quels secteurs travaillez-vous ?">What industries do you work with?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="We work with businesses where the website actually has a job to do — e-commerce, service businesses, clinics, construction, SaaS, jewellery, hospitality. If yours should be bringing in revenue and isn't, we can help." data-fr="Nous travaillons avec les entreprises dont le site a un vrai rôle à jouer — commerce en ligne, services, cliniques, construction, SaaS, joaillerie, hôtellerie. Si le vôtre devrait générer des revenus sans y parvenir, nous pouvons aider.">We work with businesses where the website actually has a job to do — e-commerce, service businesses, clinics, construction, SaaS, jewellery, hospitality. If yours should be bringing in revenue and isn't, we can help.</div>
+            <summary><span data-en="What kind of businesses do you work with?" data-fr="Avec quels types d'entreprises travaillez-vous ?">What kind of businesses do you work with?</span><span class="ic"></span></summary>
+            <div class="ans" data-en="We build for businesses where the website has a real job to do — service businesses, trades, clinics, shops and e-commerce, restaurants, and growing brands. If your site should be bringing in work and isn't, that's exactly what we fix." data-fr="Nous concevons pour les entreprises dont le site a un vrai rôle à jouer — services, métiers, cliniques, boutiques et commerce en ligne, restaurants et marques en croissance. Si votre site devrait générer des affaires sans y parvenir, c'est exactement ce que nous réglons.">We build for businesses where the website has a real job to do — service businesses, trades, clinics, shops and e-commerce, restaurants, and growing brands. If your site should be bringing in work and isn't, that's exactly what we fix.</div>
           </details>
           <details class="faq">
             <summary><span data-en="Why not just update my existing site?" data-fr="Pourquoi ne pas simplement mettre à jour mon site actuel ?">Why not just update my existing site?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="Most sites we see have structural problems, not cosmetic ones: slow code, weak positioning, and no clear path to conversion. Patching the surface rarely fixes the deeper issues. A rebuild lets us address the root cause — structure, copy, layout, and conversion mechanics." data-fr="La plupart des sites que nous voyons ont des problèmes structurels, pas cosmétiques : code lent, positionnement faible et aucun chemin clair vers la conversion. Corriger la surface règle rarement le fond. Une refonte nous permet de traiter la cause : structure, contenu, mise en page et mécanique de conversion.">Most sites we see have structural problems, not cosmetic ones: slow code, weak positioning, and no clear path to conversion. Patching the surface rarely fixes the deeper issues. A rebuild lets us address the root cause — structure, copy, layout, and conversion mechanics.</div>
+            <div class="ans" data-en="Most of the sites we look at have structural problems, not cosmetic ones — slow code, fuzzy positioning, and no clear path to a sale. Patching the surface rarely fixes that. A rebuild lets us fix the root: structure, copy, layout, and the mechanics that turn visitors into customers." data-fr="La plupart des sites que nous examinons ont des problèmes de structure, pas d'apparence — code lent, positionnement flou et aucun chemin clair vers la vente. Retoucher la surface règle rarement le fond. Une refonte nous permet de corriger la racine : structure, contenu, mise en page et la mécanique qui transforme les visiteurs en clients.">Most of the sites we look at have structural problems, not cosmetic ones — slow code, fuzzy positioning, and no clear path to a sale. Patching the surface rarely fixes that. A rebuild lets us fix the root: structure, copy, layout, and the mechanics that turn visitors into customers.</div>
           </details>
           <details class="faq">
             <summary><span data-en="How much does a project cost?" data-fr="Combien coûte un projet ?">How much does a project cost?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="Projects typically range from $5K to $100K+ depending on scope and complexity. We'll share a custom quote once we understand exactly what you need." data-fr="Les projets vont généralement de 5 000 $ à plus de 100 000 $ selon la portée et la complexité. Nous fournissons un devis sur mesure une fois vos besoins bien compris.">Projects typically range from $5K to $100K+ depending on scope and complexity. We'll share a custom quote once we understand exactly what you need.</div>
+            <div class="ans" data-en="Every project is custom-quoted to scope, and our pricing stays very competitive for the quality you get. Once we understand what you need, you'll get a clear, fixed price before any work begins — no surprises later." data-fr="Chaque projet est chiffré sur mesure selon la portée, et nos tarifs restent très compétitifs pour la qualité offerte. Une fois vos besoins compris, vous recevez un prix clair et fixe avant le début des travaux — aucune surprise par la suite.">Every project is custom-quoted to scope, and our pricing stays very competitive for the quality you get. Once we understand what you need, you'll get a clear, fixed price before any work begins — no surprises later.</div>
           </details>
           <details class="faq">
-            <summary><span data-en="How long does a rebuild take?" data-fr="Combien de temps prend une refonte ?">How long does a rebuild take?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="Most projects launch in 6–9 weeks from kickoff. Smaller scopes wrap in 4–5 weeks. Full e-commerce rebuilds with custom integrations can run 10–12." data-fr="La plupart des projets sont lancés en 6 à 9 semaines après le démarrage. Les portées plus modestes se terminent en 4 à 5 semaines. Les refontes complètes de commerce en ligne avec intégrations sur mesure peuvent durer 10 à 12 semaines.">Most projects launch in 6–9 weeks from kickoff. Smaller scopes wrap in 4–5 weeks. Full e-commerce rebuilds with custom integrations can run 10–12.</div>
-          </details>
-          <details class="faq">
-            <summary><span data-en="How do I know this will get me more leads?" data-fr="Comment savoir si cela m'apportera plus de clients ?">How do I know this will get me more leads?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="Two parts. A strategy phase maps your buyer journey with conversion mechanics built in, and we install analytics with baseline KPI tracking so the results are measurable — not guessed at." data-fr="Deux volets. Une phase stratégique cartographie le parcours d'achat avec une mécanique de conversion intégrée, et nous installons l'analytique avec un suivi de KPI de référence afin que les résultats soient mesurables — pas devinés.">Two parts. A strategy phase maps your buyer journey with conversion mechanics built in, and we install analytics with baseline KPI tracking so the results are measurable — not guessed at.</div>
+            <summary><span data-en="How long does a build take?" data-fr="Combien de temps prend la création d'un site ?">How long does a build take?</span><span class="ic"></span></summary>
+            <div class="ans" data-en="Most sites launch in about two weeks from kickoff. Simple one-pagers can be faster; larger builds with custom features take a little longer." data-fr="La plupart des sites sont lancés en environ deux semaines après le démarrage. Les sites d'une page peuvent aller plus vite; les projets plus gros avec fonctions sur mesure prennent un peu plus de temps.">Most sites launch in about two weeks from kickoff. Simple one-pagers can be faster; larger builds with custom features take a little longer.</div>
           </details>
           <details class="faq">
             <summary><span data-en="What happens after launch?" data-fr="Que se passe-t-il après le lancement ?">What happens after launch?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="Three things. Every project includes a 30-day post-launch window where we monitor performance, fix bugs, and make small adjustments. We hand over with documentation and a training session. And if you want ongoing optimisation, we offer monthly support." data-fr="Trois choses. Chaque projet inclut une fenêtre de 30 jours après le lancement durant laquelle nous surveillons la performance, corrigeons les bogues et faisons de petits ajustements. Nous remettons une documentation et une formation. Et si vous voulez une optimisation continue, nous offrons un soutien mensuel.">Three things. Every project includes a 30-day post-launch window where we monitor performance, fix bugs, and make small adjustments. We hand over with documentation and a training session. And if you want ongoing optimisation, we offer monthly support.</div>
+            <div class="ans" data-en="We don't vanish once the site is live. You get two weeks of close attention right after launch — we keep an eye on how it's running, fix anything that comes up, and make small tweaks. After that, ongoing support is included, so there's always someone to call." data-fr="Nous ne disparaissons pas une fois le site en ligne. Vous bénéficiez de deux semaines d'attention particulière juste après le lancement — nous surveillons son fonctionnement, corrigeons ce qui doit l'être et faisons de petits ajustements. Ensuite, un soutien continu est inclus : il y a toujours quelqu'un à appeler.">We don't vanish once the site is live. You get two weeks of close attention right after launch — we keep an eye on how it's running, fix anything that comes up, and make small tweaks. After that, ongoing support is included, so there's always someone to call.</div>
           </details>
           <details class="faq">
             <summary><span data-en="Can I edit the site myself afterwards?" data-fr="Puis-je modifier le site moi-même ensuite ?">Can I edit the site myself afterwards?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="Yes. We build on platforms your team can actually manage — Webflow, WordPress, Shopify — depending on what fits your business. You get documentation and a training session at handover." data-fr="Oui. Nous bâtissons sur des plateformes que votre équipe peut réellement gérer — Webflow, WordPress, Shopify — selon ce qui convient à votre entreprise. Vous recevez une documentation et une formation au transfert.">Yes. We build on platforms your team can actually manage — Webflow, WordPress, Shopify — depending on what fits your business. You get documentation and a training session at handover.</div>
+            <div class="ans" data-en="For most of our clients, we handle the edits for you — just send over what you'd like changed and we take care of it. Prefer to manage it yourself? We can build the site so you can edit it directly; whether that's the right fit depends on the design we choose together." data-fr="Pour la plupart de nos clients, nous nous occupons des modifications pour vous — envoyez-nous simplement ce que vous voulez changer et nous le faisons. Vous préférez gérer vous-même ? Nous pouvons concevoir le site pour que vous puissiez le modifier vous-même; tout dépend de la conception que nous choisissons ensemble.">For most of our clients, we handle the edits for you — just send over what you'd like changed and we take care of it. Prefer to manage it yourself? We can build the site so you can edit it directly; whether that's the right fit depends on the design we choose together.</div>
           </details>
           <details class="faq">
             <summary><span data-en="What makes Parallex different?" data-fr="Qu'est-ce qui distingue Parallex ?">What makes Parallex different?</span><span class="ic"></span></summary>
-            <div class="ans" data-en="Most web design agencies are run by designers. We're a performance marketing team that builds websites. We run paid traffic for clients every day across 40+ businesses, so we see in real time what converts visitors and what makes them bounce." data-fr="La plupart des agences de design web sont dirigées par des designers. Nous sommes une équipe de marketing à la performance qui crée des sites. Nous gérons du trafic payant chaque jour pour plus de 40 entreprises, donc nous voyons en temps réel ce qui convertit et ce qui fait fuir les visiteurs.">Most web design agencies are run by designers. We're a performance marketing team that builds websites. We run paid traffic for clients every day across 40+ businesses, so we see in real time what converts visitors and what makes them bounce.</div>
+            <div class="ans" data-en="Most web studios are run by designers, so they optimize for how a site looks. We start from the job your site has to do — turn visitors into customers — and design backward from there. We also make it painless: we handle the heavy lifting, move fast, and keep you out of the technical weeds. And if you don't have your wording or photos ready, we'll polish what you give us — or create it for you." data-fr="La plupart des studios web sont dirigés par des designers, alors ils optimisent l'apparence. Nous partons du rôle de votre site — transformer les visiteurs en clients — et concevons à rebours. Nous rendons aussi le tout sans tracas : nous faisons le gros du travail, allons vite et vous épargnons les détails techniques. Et si vos textes ou vos photos ne sont pas prêts, nous peaufinons ce que vous nous donnez — ou nous les créons pour vous.">Most web studios are run by designers, so they optimize for how a site looks. We start from the job your site has to do — turn visitors into customers — and design backward from there. We also make it painless: we handle the heavy lifting, move fast, and keep you out of the technical weeds. And if you don't have your wording or photos ready, we'll polish what you give us — or create it for you.</div>
           </details>
         </div>
       </div>
@@ -721,10 +633,10 @@
         <div>
           <span class="eyebrow" data-en="Contact" data-fr="Contact">Contact</span>
           <h2 data-en="Let's Connect" data-fr="Connectons-nous">Let's Connect</h2>
-          <p class="lead" data-en="Ready for a site that gets results? Book a 30-minute strategy call. We'll review your current site, talk through what you want to build, and give you a clear plan and timeline." data-fr="Prêt pour un site qui donne des résultats ? Réservez un appel stratégique de 30 minutes. Nous examinons votre site actuel, discutons de votre projet et vous remettons un plan et un échéancier clairs.">Ready for a site that gets results? Book a 30-minute strategy call. We'll review your current site, talk through what you want to build, and give you a clear plan and timeline.</p>
+          <p class="lead" data-en="Ready for a site that actually earns its keep? Book a free 30-minute strategy call. We'll talk through your business, what you want to build, and send you off with a clear plan and timeline." data-fr="Prêt pour un site qui rapporte vraiment ? Réservez un appel stratégique gratuit de 30 minutes. Nous discutons de votre entreprise, de ce que vous voulez bâtir, et vous repartez avec un plan et un échéancier clairs.">Ready for a site that actually earns its keep? Book a free 30-minute strategy call. We'll talk through your business, what you want to build, and send you off with a clear plan and timeline.</p>
           <div class="connect-points">
             <div class="cpoint"><span class="ck"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#9fc0ff" stroke-width="2.4"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg></span><span data-en="A clear, no-pressure plan to take away" data-fr="Un plan clair et sans pression à emporter">A clear, no-pressure plan to take away</span></div>
-            <div class="cpoint"><span class="ck"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#9fc0ff" stroke-width="2.4"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg></span><span data-en="An honest review of your current site" data-fr="Une évaluation honnête de votre site actuel">An honest review of your current site</span></div>
+            <div class="cpoint"><span class="ck"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#9fc0ff" stroke-width="2.4"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg></span><span data-en="Honest, no-jargon advice you can act on" data-fr="Des conseils honnêtes et sans jargon">Honest, no-jargon advice you can act on</span></div>
             <div class="cpoint"><span class="ck"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#9fc0ff" stroke-width="2.4"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg></span><span data-en="A realistic timeline and quote" data-fr="Un échéancier et un devis réalistes">A realistic timeline and quote</span></div>
           </div>
         </div>
@@ -736,11 +648,11 @@
           <div class="field"><label data-en="Phone" data-fr="Téléphone">Phone</label>
             <div class="phone-row">
               <select aria-label="Country code"><option>+1</option><option>+44</option><option>+33</option><option>+61</option></select>
-              <input type="tel" placeholder="(555) 000-0000" />
+              <input type="tel" placeholder="(514) 000-0000" />
             </div>
           </div>
           <div class="field"><label data-en="How did you hear about us?" data-fr="Comment nous avez-vous connus ?">How did you hear about us?</label>
-            <select><option data-en="Facebook / Instagram" data-fr="Facebook / Instagram">Facebook / Instagram</option><option data-en="LinkedIn" data-fr="LinkedIn">LinkedIn</option><option data-en="Google" data-fr="Google">Google</option><option data-en="Friend / Referral" data-fr="Ami / Recommandation">Friend / Referral</option><option data-en="Other" data-fr="Autre">Other</option></select>
+            <select><option data-en="Google" data-fr="Google">Google</option><option data-en="LinkedIn" data-fr="LinkedIn">LinkedIn</option><option data-en="Friend / Referral" data-fr="Ami / Recommandation">Friend / Referral</option><option data-en="Other" data-fr="Autre">Other</option></select>
           </div>
           <button class="btn btn-primary" data-en="Book a Strategy Call" data-fr="Réserver un appel stratégique">Book a Strategy Call</button>
           <p class="fineprint" data-en="We'll reply within one business day." data-fr="Nous répondons en un jour ouvrable.">We'll reply within one business day.</p>
@@ -756,22 +668,16 @@
     <div class="foot-top">
       <div class="foot-col">
         <img class="foot-logo" src="parallex-logo.png" alt="Parallex Web Studio" />
-        <p class="foot-tag" data-en="Helping businesses grow through data-driven design and marketing since 2017." data-fr="Nous aidons les entreprises à croître grâce au design et au marketing axés sur les données depuis 2017.">Helping businesses grow through data-driven design and marketing since 2017.</p>
-        <div class="socials">
-          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.2-1.5 1.5-1.5H16V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9V11H7.5v3H10v8h3z"/></svg></a>
-        </div>
       </div>
       <div class="foot-col">
         <h4 data-en="Navigate" data-fr="Navigation">Navigate</h4>
-        <a href="#" data-en="Work" data-fr="Réalisations">Work</a>
         <a href="#" data-en="Process" data-fr="Processus">Process</a>
-        <a href="#" data-en="Reviews" data-fr="Témoignages">Reviews</a>
+        <a href="#why" data-en="Why Parallex" data-fr="Pourquoi Parallex">Why Parallex</a>
         <a href="#connect" data-en="Contact" data-fr="Contact">Contact</a>
       </div>
       <div class="foot-col">
         <h4 data-en="Get in touch" data-fr="Nous joindre">Get in touch</h4>
-        <a href="mailto:hello@parallex.ca">hello@parallex.ca</a>
+        <a href="mailto:contact@parallex.ca">contact@parallex.ca</a>
         <a href="#" data-en="Privacy Policy" data-fr="Politique de confidentialité">Privacy Policy</a>
         <a href="#" data-en="Terms &amp; Conditions" data-fr="Conditions d'utilisation">Terms &amp; Conditions</a>
       </div>
@@ -812,12 +718,6 @@
     entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // ---------- Industries carousel ----------
-  const track = document.getElementById('indus');
-  const step = 342;
-  document.getElementById('indNext').addEventListener('click', () => track.scrollBy({ left: step, behavior: 'smooth' }));
-  document.getElementById('indPrev').addEventListener('click', () => track.scrollBy({ left: -step, behavior: 'smooth' }));
 </script>
 
 <!-- Full-page plasma background: raw WebGL port of the shader-background component,
