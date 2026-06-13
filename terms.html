@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms &amp; Conditions — Parallex Web Studio</title>
+<meta name="description" content="The terms that govern your use of the Parallex Web Studio website and our web design services." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0F1A2E; --bg1:#13213A; --bg2:#172A46; --surface:#1B2A47;
+    --blue:#4D8DFF; --blue2:#1747C4; --gold:#F2B45C; --ink:#EAF0FA;
+    --bd:rgba(77,141,255,.16); --bd2:rgba(255,255,255,.08);
+    --muted:#7385A0; --body:#A6B6CF;
+    --fh:'Dela Gothic One',sans-serif; --fb:'DM Sans',sans-serif;
+    --px:64px; --px-m:28px; --px-s:20px; --maxw:1200px; --readw:780px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);font-family:var(--fb);color:#fff;
+    overflow-x:hidden;line-height:1.6;position:relative;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(120% 70% at 85% -10%, rgba(77,141,255,.14), transparent 60%),
+      radial-gradient(90% 60% at -10% 0%, rgba(23,71,196,.12), transparent 55%),
+      linear-gradient(180deg, var(--bg1), var(--bg));
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(77,141,255,.35);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--px)}
+
+  html[data-lang="en"] .l-fr{display:none}
+  html[data-lang="fr"] .l-en{display:none}
+
+  h1,h2,h3{font-family:var(--fh);font-weight:400;line-height:1.1;letter-spacing:-.03em;color:var(--ink)}
+  .accent{color:var(--gold)}
+
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(15,26,46,.72);
+    backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--bd2);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:96px}
+  .brand{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+  .brand-name{font-family:var(--fh);font-size:36px;letter-spacing:-.01em;color:#fff;line-height:.95}
+  .brand-sub{display:flex;align-items:center;gap:9px;align-self:stretch;margin-top:9px}
+  .brand-rule{flex:1 1 auto;height:1px;background:rgba(120,138,160,.42)}
+  .brand-sub-text{font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.4em;text-transform:uppercase;white-space:nowrap;color:var(--blue);padding-left:.4em}
+  .brand:focus-visible{outline:2px solid #9fc0ff;outline-offset:4px;border-radius:6px}
+  .nav-actions{display:flex;align-items:center;gap:14px}
+  .lang-toggle{
+    display:inline-flex;align-items:center;gap:6px;font-family:var(--fb);font-weight:600;font-size:13px;color:var(--body);
+    background:rgba(255,255,255,.03);border:1px solid var(--bd2);border-radius:10px;padding:9px 12px;cursor:pointer;
+    transition:border-color .3s var(--ease),color .3s var(--ease),background .3s var(--ease);
+  }
+  .lang-toggle:hover{border-color:var(--bd);color:#fff}
+  .lang-toggle .on{color:var(--blue)}
+  .lang-toggle:focus-visible{outline:2px solid #9fc0ff;outline-offset:3px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--fb);font-weight:600;font-size:14px;
+    padding:11px 18px;border-radius:11px;border:1px solid transparent;cursor:pointer;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease);
+  }
+  .btn-ghost{color:#fff;background:rgba(255,255,255,.03);border:1px solid var(--bd2)}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--bd);background:rgba(77,141,255,.08)}
+  .btn-ghost:focus-visible{outline:2px solid #9fc0ff;outline-offset:3px}
+  .btn-ghost svg{transition:transform .35s var(--ease)}
+  .btn-ghost:hover svg{transform:translateX(-3px)}
+
+  .doc{padding:72px 0 40px}
+  .doc-head{max-width:var(--readw);margin-bottom:14px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--blue),transparent)}
+  .doc-head h1{font-size:clamp(34px,5vw,52px);margin-bottom:16px}
+  .updated{color:var(--muted);font-size:13.5px;letter-spacing:.02em}
+  .intro{max-width:var(--readw);color:var(--body);font-size:17px;line-height:1.75;margin:26px 0 8px}
+
+  .content{max-width:var(--readw);padding-bottom:40px}
+  .toc{
+    border:1px solid var(--bd2);border-radius:16px;padding:22px 26px;margin:30px 0 44px;
+    background:linear-gradient(180deg,var(--bg2),rgba(11,15,26,.4));
+    box-shadow:0 18px 40px -32px rgba(77,141,255,.5);
+  }
+  .toc h2{font-family:var(--fb);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .toc ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+  .toc li{counter-increment:t;font-size:14px}
+  .toc a{display:flex;gap:10px;color:var(--body);padding:3px 0;transition:color .25s var(--ease)}
+  .toc a::before{content:counter(t,decimal-leading-zero);color:var(--blue);font-weight:600;font-variant-numeric:tabular-nums}
+  .toc a:hover{color:#fff}
+
+  .content section{padding:26px 0;border-top:1px solid var(--bd2);scroll-margin-top:120px}
+  .content section:first-of-type{border-top:0}
+  .content h2{font-family:var(--fb);font-weight:700;font-size:21px;letter-spacing:-.01em;color:#fff;margin-bottom:14px;display:flex;align-items:baseline;gap:12px}
+  .content h2 .n{font-family:var(--fh);font-size:14px;color:var(--blue);flex:0 0 auto}
+  .content h3{font-family:var(--fb);font-weight:600;font-size:16px;color:var(--ink);margin:20px 0 8px}
+  .content p{color:var(--body);font-size:15.5px;line-height:1.78;margin-bottom:14px}
+  .content p:last-child{margin-bottom:0}
+  .content ul{list-style:none;margin:6px 0 16px;display:flex;flex-direction:column;gap:10px}
+  .content li{position:relative;padding-left:24px;color:var(--body);font-size:15.5px;line-height:1.7}
+  .content li::before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(77,141,255,.14)}
+  .content a.inline{color:var(--blue);font-weight:600;border-bottom:1px solid rgba(77,141,255,.35);transition:border-color .25s var(--ease)}
+  .content a.inline:hover{border-color:var(--blue)}
+  .content strong{color:var(--ink);font-weight:600}
+  .ph{color:var(--gold);font-style:italic}
+
+  .callout{
+    border:1px solid var(--bd);border-radius:14px;padding:18px 20px;margin:8px 0 16px;
+    background:rgba(77,141,255,.06);color:var(--body);font-size:14.5px;line-height:1.7;
+  }
+  .callout strong{color:var(--ink)}
+
+  footer{border-top:1px solid var(--bd2);margin-top:24px}
+  .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:28px 0 36px;color:var(--muted);font-size:13px}
+  .foot-inner .links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-inner a{transition:color .25s var(--ease)}
+  .foot-inner a:hover{color:#fff}
+
+  @media (max-width:1080px){:root{--px:var(--px-m)}}
+  @media (max-width:680px){
+    :root{--px:var(--px-s)}
+    .nav-inner{height:84px}.brand-name{font-size:28px}.brand-sub-text{font-size:10.5px;letter-spacing:.3em}
+    .btn .lbl-full{display:none}
+    .toc ol{grid-template-columns:1fr}
+    .doc{padding-top:48px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Parallex Web Studio home">
+      <span class="brand-name">Parallex</span>
+      <span class="brand-sub">
+        <span class="brand-rule" aria-hidden="true"></span>
+        <span class="brand-sub-text">Web Studio</span>
+        <span class="brand-rule" aria-hidden="true"></span>
+      </span>
+    </a>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span class="en-lbl on">EN</span><span aria-hidden="true">/</span><span class="fr-lbl">FR</span>
+      </button>
+      <a href="index.html" class="btn btn-ghost">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        <span class="lbl-full" data-en="Back to site" data-fr="Retour au site">Back to site</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- DOC -->
+<main class="doc">
+  <div class="wrap">
+    <div class="doc-head">
+      <span class="eyebrow" data-en="Legal" data-fr="Mentions légales">Legal</span>
+      <h1 data-en="Terms &amp; <span class='accent'>Conditions</span>" data-fr="Conditions <span class='accent'>d'utilisation</span>">Terms &amp; <span class="accent">Conditions</span></h1>
+      <p class="updated" data-en="Last updated: June 13, 2026" data-fr="Dernière mise à jour : 13 juin 2026">Last updated: June 13, 2026</p>
+    </div>
+
+    <!-- ===================== ENGLISH ===================== -->
+    <div class="l-en">
+      <p class="intro">These Terms &amp; Conditions govern your use of the Parallex Web Studio website and the services we provide. By using our site or engaging us for a project, you agree to these terms. We've written them to be clear and fair — but the specific deliverables, price, and schedule for any project are always set out in the proposal or agreement we sign with you, which takes precedence if anything conflicts.</p>
+
+      <div class="content">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#t-services">Our services</a></li>
+            <li><a href="#t-quotes">Quotes &amp; scope</a></li>
+            <li><a href="#t-client">Your responsibilities</a></li>
+            <li><a href="#t-payment">Payment</a></li>
+            <li><a href="#t-revisions">Revisions &amp; timelines</a></li>
+            <li><a href="#t-ip">Intellectual property</a></li>
+            <li><a href="#t-thirdparty">Third-party platforms</a></li>
+            <li><a href="#t-support">Post-launch support</a></li>
+            <li><a href="#t-warranty">Warranties &amp; liability</a></li>
+            <li><a href="#t-law">Termination &amp; governing law</a></li>
+          </ol>
+        </nav>
+
+        <section id="t-services">
+          <h2><span class="n">01</span> Our services</h2>
+          <p>Parallex Web Studio designs, builds, and supports custom websites for businesses, along with related services such as copywriting, content creation, and ongoing maintenance. The exact services for your project are described in the proposal or written agreement we provide before any work begins.</p>
+        </section>
+
+        <section id="t-quotes">
+          <h2><span class="n">02</span> Quotes, proposals &amp; project scope</h2>
+          <p>Every project is custom-quoted based on what you need. Once we understand the scope, we provide a written quote with a fixed price. That quote covers the work described in it — anything beyond the agreed scope (new pages, features, or significant changes of direction) is treated as a separate request and may affect the price and timeline. We'll always confirm with you before doing additional billable work.</p>
+        </section>
+
+        <section id="t-client">
+          <h2><span class="n">03</span> Your responsibilities</h2>
+          <p>To keep your project on track, you agree to:</p>
+          <ul>
+            <li>Provide accurate information about your business and project goals;</li>
+            <li>Supply any content you intend to use (text, images, logos, accounts) in a timely manner, or ask us to create it for you;</li>
+            <li>Review work and give clear feedback or approval at each stage within a reasonable timeframe;</li>
+            <li>Confirm that any material you give us is yours to use and doesn't infringe anyone else's rights.</li>
+          </ul>
+          <p>If we're waiting on content or approvals, the project timeline may shift accordingly.</p>
+        </section>
+
+        <section id="t-payment">
+          <h2><span class="n">04</span> Payment</h2>
+          <p>Unless your agreement says otherwise, projects are invoiced with a deposit due before work starts and the balance due at or before launch. Payment terms, amounts, and any milestones are set out in your proposal. Invoices are payable within the period stated on them, and late payments may pause work until the account is settled. All prices are in Canadian dollars unless noted, and taxes are added where applicable.</p>
+          <p>Deposits are non-refundable — they reserve your place in our schedule and cover the work that begins right away. Fees for work we've already completed are also non-refundable. If you cancel a project partway through, you're responsible for the work done up to that point, and any remaining balance for that work becomes due.</p>
+        </section>
+
+        <section id="t-revisions">
+          <h2><span class="n">05</span> Revisions &amp; timelines</h2>
+          <p>Your project includes the rounds of revisions described in your proposal. We'll give you a realistic timeline at the outset — most sites launch in about two weeks from kickoff — but timelines depend on receiving your content, feedback, and approvals on schedule. Delays on either side, or changes to scope, can move the launch date.</p>
+        </section>
+
+        <section id="t-ip">
+          <h2><span class="n">06</span> Intellectual property</h2>
+          <h3>What you own</h3>
+          <p>Once your project is fully paid for, you own the final website deliverables we create specifically for you — including the design and the content we produce for your site. Any materials you provided to us (your logo, text, and images) remain yours.</p>
+          <h3>What we keep</h3>
+          <p>We retain ownership of any underlying tools, code components, frameworks, and techniques we use across projects, and we keep the right to reuse that general know-how. We also keep the right to display your completed project in our portfolio and marketing unless we agree otherwise in writing.</p>
+          <h3>Third-party assets</h3>
+          <p>Some projects use third-party elements — fonts, stock photos, plugins, or platform features — that are licensed, not owned. Those remain subject to their own licenses, which we'll pass along or set up under your accounts where relevant.</p>
+        </section>
+
+        <section id="t-thirdparty">
+          <h2><span class="n">07</span> Third-party platforms &amp; services</h2>
+          <p>We often build on or connect to third-party platforms (such as hosting providers, Webflow, WordPress, Shopify, payment processors, and analytics). Those services have their own terms, pricing, and availability, which are outside our control. We're not responsible for outages, changes, or fees charged by third parties, though we'll help you choose reliable ones and get set up.</p>
+        </section>
+
+        <section id="t-support">
+          <h2><span class="n">08</span> Post-launch support</h2>
+          <p>After launch, you receive a period of close support to fine-tune the site, as described in your proposal — typically two weeks. Beyond that, ongoing support and maintenance are available on the terms we agree to. Support covers fixes and small updates; new features or redesigns are quoted separately.</p>
+        </section>
+
+        <section id="t-warranty">
+          <h2><span class="n">09</span> Warranties &amp; limitation of liability</h2>
+          <p>We take pride in our work and will perform our services with reasonable skill and care. That said, we can't guarantee specific business results, search rankings, traffic, or revenue, and the website is otherwise provided “as is” to the extent permitted by law.</p>
+          <p>To the fullest extent allowed by law, Parallex is not liable for indirect, incidental, or consequential losses, and our total liability for any claim relating to a project is limited to the amount you paid us for that project. Nothing in these terms limits any rights you have that cannot be limited under applicable law.</p>
+        </section>
+
+        <section id="t-law">
+          <h2><span class="n">10</span> Termination, changes &amp; governing law</h2>
+          <p>Either party may end a project as set out in the agreement; if you cancel, you remain responsible for work completed up to that point. We may update these terms from time to time, and the current version will always be posted here with its “Last updated” date.</p>
+          <p>These terms are governed by the laws of the <strong>Province of Québec</strong> and the federal laws of Canada that apply there, and any dispute will be handled by the courts of Québec.</p>
+          <div class="callout">
+            <p><strong>Questions about these terms?</strong> Get in touch:</p>
+            <p>Parallex Web Studio<br/>
+            Email: <a class="inline" href="mailto:contact@parallex.ca">contact@parallex.ca</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ===================== FRANÇAIS ===================== -->
+    <div class="l-fr">
+      <p class="intro">Les présentes conditions d'utilisation régissent votre utilisation du site de Studio Web Parallex et des services que nous offrons. En utilisant notre site ou en retenant nos services pour un projet, vous acceptez ces conditions. Nous les avons rédigées de façon claire et équitable — mais les livrables, le prix et l'échéancier propres à chaque projet sont toujours précisés dans la proposition ou l'entente que nous signons avec vous, laquelle prévaut en cas de divergence.</p>
+
+      <div class="content">
+        <nav class="toc" aria-label="Table des matières">
+          <h2>Sur cette page</h2>
+          <ol>
+            <li><a href="#g-services">Nos services</a></li>
+            <li><a href="#g-quotes">Devis et portée</a></li>
+            <li><a href="#g-client">Vos responsabilités</a></li>
+            <li><a href="#g-payment">Paiement</a></li>
+            <li><a href="#g-revisions">Révisions et délais</a></li>
+            <li><a href="#g-ip">Propriété intellectuelle</a></li>
+            <li><a href="#g-thirdparty">Plateformes tierces</a></li>
+            <li><a href="#g-support">Soutien après lancement</a></li>
+            <li><a href="#g-warranty">Garanties et responsabilité</a></li>
+            <li><a href="#g-law">Résiliation et droit applicable</a></li>
+          </ol>
+        </nav>
+
+        <section id="g-services">
+          <h2><span class="n">01</span> Nos services</h2>
+          <p>Studio Web Parallex conçoit, développe et soutient des sites web sur mesure pour les entreprises, ainsi que des services connexes comme la rédaction, la création de contenu et l'entretien continu. Les services exacts de votre projet sont décrits dans la proposition ou l'entente écrite que nous fournissons avant le début des travaux.</p>
+        </section>
+
+        <section id="g-quotes">
+          <h2><span class="n">02</span> Devis, propositions et portée du projet</h2>
+          <p>Chaque projet est chiffré sur mesure selon vos besoins. Une fois la portée comprise, nous fournissons un devis écrit avec un prix fixe. Ce devis couvre les travaux qui y sont décrits — tout ce qui dépasse la portée convenue (nouvelles pages, fonctions ou changements de direction importants) est traité comme une demande distincte pouvant influer sur le prix et l'échéancier. Nous confirmons toujours avec vous avant d'effectuer des travaux facturables supplémentaires.</p>
+        </section>
+
+        <section id="g-client">
+          <h2><span class="n">03</span> Vos responsabilités</h2>
+          <p>Pour que votre projet avance bien, vous acceptez de :</p>
+          <ul>
+            <li>Fournir des renseignements exacts sur votre entreprise et vos objectifs;</li>
+            <li>Nous transmettre en temps utile le contenu que vous comptez utiliser (textes, images, logos, accès), ou nous demander de le créer;</li>
+            <li>Réviser le travail et donner une rétroaction ou une approbation claire à chaque étape dans un délai raisonnable;</li>
+            <li>Confirmer que tout matériel que vous nous remettez vous appartient et ne porte pas atteinte aux droits d'autrui.</li>
+          </ul>
+          <p>Si nous attendons du contenu ou des approbations, l'échéancier du projet peut être décalé en conséquence.</p>
+        </section>
+
+        <section id="g-payment">
+          <h2><span class="n">04</span> Paiement</h2>
+          <p>Sauf indication contraire dans votre entente, les projets sont facturés avec un acompte exigible avant le début des travaux et le solde exigible au plus tard au lancement. Les modalités, montants et jalons de paiement sont précisés dans votre proposition. Les factures sont payables dans le délai qui y est indiqué, et un retard de paiement peut suspendre les travaux jusqu'au règlement du compte. Tous les prix sont en dollars canadiens sauf indication contraire, et les taxes applicables s'ajoutent.</p>
+          <p>Les acomptes ne sont pas remboursables — ils réservent votre place dans notre calendrier et couvrent les travaux qui commencent immédiatement. Les frais pour les travaux déjà réalisés ne sont pas non plus remboursables. Si vous annulez un projet en cours de route, vous êtes responsable des travaux effectués jusque-là, et tout solde restant pour ces travaux devient exigible.</p>
+        </section>
+
+        <section id="g-revisions">
+          <h2><span class="n">05</span> Révisions et délais</h2>
+          <p>Votre projet comprend les séries de révisions décrites dans votre proposition. Nous vous donnons un échéancier réaliste dès le départ — la plupart des sites sont lancés en environ deux semaines après le démarrage — mais les délais dépendent de la réception de votre contenu, de vos commentaires et de vos approbations à temps. Des retards de part et d'autre, ou des changements de portée, peuvent reporter la date de lancement.</p>
+        </section>
+
+        <section id="g-ip">
+          <h2><span class="n">06</span> Propriété intellectuelle</h2>
+          <h3>Ce que vous possédez</h3>
+          <p>Une fois votre projet entièrement payé, vous devenez propriétaire des livrables finaux du site que nous créons spécifiquement pour vous — y compris le design et le contenu que nous produisons pour votre site. Tout matériel que vous nous avez fourni (votre logo, vos textes, vos images) demeure le vôtre.</p>
+          <h3>Ce que nous conservons</h3>
+          <p>Nous conservons la propriété des outils, composants de code, cadres et techniques sous-jacents que nous utilisons d'un projet à l'autre, ainsi que le droit de réutiliser ce savoir-faire général. Nous conservons aussi le droit de présenter votre projet terminé dans notre portfolio et nos communications, sauf entente écrite contraire.</p>
+          <h3>Éléments de tiers</h3>
+          <p>Certains projets utilisent des éléments de tiers — polices, photos de banque, extensions ou fonctions de plateforme — qui sont sous licence et non détenus. Ceux-ci demeurent assujettis à leurs propres licences, que nous vous transmettons ou configurons sous vos comptes au besoin.</p>
+        </section>
+
+        <section id="g-thirdparty">
+          <h2><span class="n">07</span> Plateformes et services tiers</h2>
+          <p>Nous construisons souvent sur des plateformes tierces ou nous y connectons (hébergeurs, Webflow, WordPress, Shopify, traitement des paiements, statistiques). Ces services ont leurs propres conditions, tarifs et disponibilité, hors de notre contrôle. Nous ne sommes pas responsables des pannes, changements ou frais facturés par des tiers, mais nous vous aidons à choisir des services fiables et à les configurer.</p>
+        </section>
+
+        <section id="g-support">
+          <h2><span class="n">08</span> Soutien après le lancement</h2>
+          <p>Après le lancement, vous bénéficiez d'une période de soutien rapproché pour peaufiner le site, comme décrit dans votre proposition — généralement deux semaines. Au-delà, un soutien et un entretien continus sont offerts selon les modalités convenues. Le soutien couvre les correctifs et les petites mises à jour; les nouvelles fonctions ou refontes sont chiffrées séparément.</p>
+        </section>
+
+        <section id="g-warranty">
+          <h2><span class="n">09</span> Garanties et limitation de responsabilité</h2>
+          <p>Nous sommes fiers de notre travail et exécutons nos services avec une compétence et un soin raisonnables. Cela dit, nous ne pouvons garantir de résultats commerciaux précis, de classements dans les moteurs de recherche, de trafic ou de revenus, et le site est par ailleurs fourni « tel quel » dans la mesure permise par la loi.</p>
+          <p>Dans toute la mesure permise par la loi, Parallex n'est pas responsable des pertes indirectes, accessoires ou consécutives, et notre responsabilité totale pour toute réclamation liée à un projet se limite au montant que vous nous avez versé pour ce projet. Rien dans les présentes conditions ne limite les droits que vous détenez et qui ne peuvent être limités en vertu de la loi applicable.</p>
+        </section>
+
+        <section id="g-law">
+          <h2><span class="n">10</span> Résiliation, modifications et droit applicable</h2>
+          <p>Chaque partie peut mettre fin à un projet selon les modalités de l'entente; en cas d'annulation de votre part, vous demeurez responsable des travaux réalisés jusque-là. Nous pouvons mettre à jour ces conditions de temps à autre, et la version en vigueur sera toujours affichée ici avec sa date de « Dernière mise à jour ».</p>
+          <p>Les présentes conditions sont régies par les lois de la <strong>province de Québec</strong> et les lois fédérales du Canada qui s'y appliquent, et tout différend relèvera des tribunaux du Québec.</p>
+          <div class="callout">
+            <p><strong>Des questions sur ces conditions ?</strong> Écrivez-nous :</p>
+            <p>Studio Web Parallex<br/>
+            Courriel : <a class="inline" href="mailto:contact@parallex.ca">contact@parallex.ca</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-inner">
+    <span data-en="© 2026 Parallex Web Studio. All rights reserved." data-fr="© 2026 Studio Web Parallex. Tous droits réservés.">© 2026 Parallex Web Studio. All rights reserved.</span>
+    <span class="links">
+      <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="privacy.html" data-en="Privacy" data-fr="Confidentialité">Privacy</a>
+      <a href="terms.html" data-en="Terms" data-fr="Conditions">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const STR = document.querySelectorAll('[data-en]');
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    STR.forEach(el => { const v = el.dataset[lang]; if (v != null) el.innerHTML = v; });
+    document.querySelector('.en-lbl').classList.toggle('on', lang === 'en');
+    document.querySelector('.fr-lbl').classList.toggle('on', lang === 'fr');
+    try { localStorage.setItem('parallex-lang', lang); } catch(e){}
+  }
+  const saved = (() => { try { return localStorage.getItem('parallex-lang'); } catch(e){ return null; } })();
+  setLang(saved === 'fr' ? 'fr' : 'en');
+  document.getElementById('langToggle').addEventListener('click', () => {
+    setLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'fr' : 'en');
+  });
+</script>
+</body>
+</html>

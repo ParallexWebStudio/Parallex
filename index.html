@@ -336,7 +336,7 @@
 
   /* ---------- FOOTER ---------- */
   footer{padding-top:var(--py);position:relative;overflow:hidden}
-  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:54px;border-bottom:1px solid var(--bd2)}
+  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:54px;border-bottom:1px solid var(--bd2)}
   .foot-logo{height:150px;width:auto;filter:brightness(0) invert(1);margin-bottom:24px}
   .foot-top h4{font-family:var(--fb);font-weight:700;font-size:15px;letter-spacing:.04em;margin-bottom:18px;color:#fff}
   .foot-col a,.foot-col p{display:block;color:var(--body);font-size:14px;margin-bottom:11px;transition:color .3s var(--ease)}
@@ -380,13 +380,18 @@
   @media (max-width:680px){
     :root{--px:var(--px-s);--py:var(--py-s)}
     .nav-inner{height:92px}
-    .brand-name{font-size:30px}.brand-sub{margin-top:7px}.brand-sub-text{font-size:11px;letter-spacing:.3em}.foot-logo{height:104px}
+    .brand-name{font-size:30px}.brand-sub{margin-top:7px}.brand-sub-text{font-size:11px;letter-spacing:.3em}
+    .foot-logo{height:auto;max-height:88px;max-width:150px;margin-bottom:0}
     .nav-cta{display:none}
     .proj-grid{grid-template-columns:1fr}
     .tgrid{grid-template-columns:1fr}
     .why-grid{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr)}
-    .foot-top{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:auto 1fr;column-gap:30px;row-gap:26px;align-items:start}
+    .foot-nav{display:none}
+    .foot-brand{grid-column:1;grid-row:1 / span 2}
+    .foot-contact{grid-column:2;grid-row:1}
+    .foot-legal{grid-column:2;grid-row:2}
     .stats{gap:10px}
     .stat{min-width:calc(50% - 5px);display:flex;flex-direction:column}
     .stat b{font-size:19px;line-height:1.18;overflow-wrap:break-word}
@@ -445,7 +450,7 @@
           </div>
         </div>
         <div class="stats">
-          <div class="stat"><b data-en="We make it easy" data-fr="On simplifie tout">We make it easy</b><span data-en="the technical stuff is on us" data-fr="on gère la technique">the technical stuff is on us</span></div>
+          <div class="stat"><b data-en="We make it easy" data-fr="On simplifie tout">We make it easy</b><span data-en="from tech &amp; design to the content, we've got it" data-fr="on gère la technique, le design et le contenu">from tech &amp; design to the content, we've got it</span></div>
           <div class="stat"><b data-en="Delivered in under 2 wks" data-fr="Livré en moins de 2 sem.">Delivered in under 2 wks</b><span data-en="start to finish" data-fr="du début à la fin">start to finish</span></div>
           <div class="stat"><b data-en="Ongoing support" data-fr="Soutien continu">Ongoing support</b><span data-en="we're always here" data-fr="toujours là pour vous">we're always here</span></div>
           <div class="stat"><b data-en="Competitive pricing" data-fr="Tarifs compétitifs">Competitive pricing</b><span data-en="fair quotes, no hidden fees" data-fr="des prix justes, sans frais cachés">fair quotes, no hidden fees</span></div>
@@ -676,28 +681,31 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-col">
+      <div class="foot-col foot-brand">
         <img class="foot-logo" src="parallex-logo.png" alt="Parallex Web Studio" />
       </div>
-      <div class="foot-col">
+      <div class="foot-col foot-nav">
         <h4 data-en="Navigate" data-fr="Navigation">Navigate</h4>
         <a href="#" data-en="Process" data-fr="Processus">Process</a>
         <a href="#why" data-en="Why Parallex" data-fr="Pourquoi Parallex">Why Parallex</a>
         <a href="#connect" data-en="Contact" data-fr="Contact">Contact</a>
       </div>
-      <div class="foot-col">
+      <div class="foot-col foot-contact">
         <h4 data-en="Get in touch" data-fr="Nous joindre">Get in touch</h4>
         <a href="mailto:contact@parallex.ca">contact@parallex.ca</a>
-        <a href="#" data-en="Privacy Policy" data-fr="Politique de confidentialité">Privacy Policy</a>
-        <a href="#" data-en="Terms &amp; Conditions" data-fr="Conditions d'utilisation">Terms &amp; Conditions</a>
+      </div>
+      <div class="foot-col foot-legal">
+        <h4 data-en="Legal" data-fr="Mentions légales">Legal</h4>
+        <a href="privacy.html" data-en="Privacy Policy" data-fr="Politique de confidentialité">Privacy Policy</a>
+        <a href="terms.html" data-en="Terms &amp; Conditions" data-fr="Conditions d'utilisation">Terms &amp; Conditions</a>
       </div>
     </div>
     <div class="wordmark">PARALLEX</div>
     <div class="foot-bottom">
       <span data-en="© 2026 Parallex Web Studio. All rights reserved." data-fr="© 2026 Studio Web Parallex. Tous droits réservés.">© 2026 Parallex Web Studio. All rights reserved.</span>
       <span class="links">
-        <a href="#" data-en="Privacy" data-fr="Confidentialité">Privacy</a>
-        <a href="#" data-en="Terms" data-fr="Conditions">Terms</a>
+        <a href="privacy.html" data-en="Privacy" data-fr="Confidentialité">Privacy</a>
+        <a href="terms.html" data-en="Terms" data-fr="Conditions">Terms</a>
       </span>
     </div>
   </div>

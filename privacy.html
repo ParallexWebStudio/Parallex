@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Parallex Web Studio</title>
+<meta name="description" content="How Parallex Web Studio collects, uses, and protects your personal information." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0F1A2E; --bg1:#13213A; --bg2:#172A46; --surface:#1B2A47;
+    --blue:#4D8DFF; --blue2:#1747C4; --gold:#F2B45C; --ink:#EAF0FA;
+    --bd:rgba(77,141,255,.16); --bd2:rgba(255,255,255,.08);
+    --muted:#7385A0; --body:#A6B6CF;
+    --fh:'Dela Gothic One',sans-serif; --fb:'DM Sans',sans-serif;
+    --px:64px; --px-m:28px; --px-s:20px; --maxw:1200px; --readw:780px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);font-family:var(--fb);color:#fff;
+    overflow-x:hidden;line-height:1.6;position:relative;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  }
+  /* calm, static brand backdrop — readability first (no animated shader on a reading page) */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(120% 70% at 85% -10%, rgba(77,141,255,.14), transparent 60%),
+      radial-gradient(90% 60% at -10% 0%, rgba(23,71,196,.12), transparent 55%),
+      linear-gradient(180deg, var(--bg1), var(--bg));
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(77,141,255,.35);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--px)}
+
+  /* language toggle: hide inactive language blocks */
+  html[data-lang="en"] .l-fr{display:none}
+  html[data-lang="fr"] .l-en{display:none}
+
+  h1,h2,h3{font-family:var(--fh);font-weight:400;line-height:1.1;letter-spacing:-.03em;color:var(--ink)}
+  .accent{color:var(--gold)}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(15,26,46,.72);
+    backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--bd2);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:96px}
+  .brand{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+  .brand-name{font-family:var(--fh);font-size:36px;letter-spacing:-.01em;color:#fff;line-height:.95}
+  .brand-sub{display:flex;align-items:center;gap:9px;align-self:stretch;margin-top:9px}
+  .brand-rule{flex:1 1 auto;height:1px;background:rgba(120,138,160,.42)}
+  .brand-sub-text{font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.4em;text-transform:uppercase;white-space:nowrap;color:var(--blue);padding-left:.4em}
+  .brand:focus-visible{outline:2px solid #9fc0ff;outline-offset:4px;border-radius:6px}
+  .nav-actions{display:flex;align-items:center;gap:14px}
+  .lang-toggle{
+    display:inline-flex;align-items:center;gap:6px;font-family:var(--fb);font-weight:600;font-size:13px;color:var(--body);
+    background:rgba(255,255,255,.03);border:1px solid var(--bd2);border-radius:10px;padding:9px 12px;cursor:pointer;
+    transition:border-color .3s var(--ease),color .3s var(--ease),background .3s var(--ease);
+  }
+  .lang-toggle:hover{border-color:var(--bd);color:#fff}
+  .lang-toggle .on{color:var(--blue)}
+  .lang-toggle:focus-visible{outline:2px solid #9fc0ff;outline-offset:3px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--fb);font-weight:600;font-size:14px;
+    padding:11px 18px;border-radius:11px;border:1px solid transparent;cursor:pointer;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease);
+  }
+  .btn-ghost{color:#fff;background:rgba(255,255,255,.03);border:1px solid var(--bd2)}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--bd);background:rgba(77,141,255,.08)}
+  .btn-ghost:focus-visible{outline:2px solid #9fc0ff;outline-offset:3px}
+  .btn-ghost svg{transition:transform .35s var(--ease)}
+  .btn-ghost:hover svg{transform:translateX(-3px)}
+
+  /* ---------- DOC ---------- */
+  .doc{padding:72px 0 40px}
+  .doc-head{max-width:var(--readw);margin-bottom:14px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--blue),transparent)}
+  .doc-head h1{font-size:clamp(34px,5vw,52px);margin-bottom:16px}
+  .updated{color:var(--muted);font-size:13.5px;letter-spacing:.02em}
+  .intro{max-width:var(--readw);color:var(--body);font-size:17px;line-height:1.75;margin:26px 0 8px}
+
+  .content{max-width:var(--readw);padding-bottom:40px}
+  .toc{
+    border:1px solid var(--bd2);border-radius:16px;padding:22px 26px;margin:30px 0 44px;
+    background:linear-gradient(180deg,var(--bg2),rgba(11,15,26,.4));
+    box-shadow:0 18px 40px -32px rgba(77,141,255,.5);
+  }
+  .toc h2{font-family:var(--fb);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .toc ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+  .toc li{counter-increment:t;font-size:14px}
+  .toc a{display:flex;gap:10px;color:var(--body);padding:3px 0;transition:color .25s var(--ease)}
+  .toc a::before{content:counter(t,decimal-leading-zero);color:var(--blue);font-weight:600;font-variant-numeric:tabular-nums}
+  .toc a:hover{color:#fff}
+
+  .content section{padding:26px 0;border-top:1px solid var(--bd2);scroll-margin-top:120px}
+  .content section:first-of-type{border-top:0}
+  .content h2{font-family:var(--fb);font-weight:700;font-size:21px;letter-spacing:-.01em;color:#fff;margin-bottom:14px;display:flex;align-items:baseline;gap:12px}
+  .content h2 .n{font-family:var(--fh);font-size:14px;color:var(--blue);flex:0 0 auto}
+  .content h3{font-family:var(--fb);font-weight:600;font-size:16px;color:var(--ink);margin:20px 0 8px}
+  .content p{color:var(--body);font-size:15.5px;line-height:1.78;margin-bottom:14px}
+  .content p:last-child{margin-bottom:0}
+  .content ul{list-style:none;margin:6px 0 16px;display:flex;flex-direction:column;gap:10px}
+  .content li{position:relative;padding-left:24px;color:var(--body);font-size:15.5px;line-height:1.7}
+  .content li::before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(77,141,255,.14)}
+  .content a.inline{color:var(--blue);font-weight:600;border-bottom:1px solid rgba(77,141,255,.35);transition:border-color .25s var(--ease)}
+  .content a.inline:hover{border-color:var(--blue)}
+  .content strong{color:var(--ink);font-weight:600}
+  .ph{color:var(--gold);font-style:italic}
+
+  .callout{
+    border:1px solid var(--bd);border-radius:14px;padding:18px 20px;margin:8px 0 16px;
+    background:rgba(77,141,255,.06);color:var(--body);font-size:14.5px;line-height:1.7;
+  }
+  .callout strong{color:var(--ink)}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--bd2);margin-top:24px}
+  .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:28px 0 36px;color:var(--muted);font-size:13px}
+  .foot-inner .links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-inner a{transition:color .25s var(--ease)}
+  .foot-inner a:hover{color:#fff}
+
+  @media (max-width:1080px){:root{--px:var(--px-m)}}
+  @media (max-width:680px){
+    :root{--px:var(--px-s)}
+    .nav-inner{height:84px}.brand-name{font-size:28px}.brand-sub-text{font-size:10.5px;letter-spacing:.3em}
+    .btn .lbl-full{display:none}
+    .toc ol{grid-template-columns:1fr}
+    .doc{padding-top:48px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Parallex Web Studio home">
+      <span class="brand-name">Parallex</span>
+      <span class="brand-sub">
+        <span class="brand-rule" aria-hidden="true"></span>
+        <span class="brand-sub-text">Web Studio</span>
+        <span class="brand-rule" aria-hidden="true"></span>
+      </span>
+    </a>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span class="en-lbl on">EN</span><span aria-hidden="true">/</span><span class="fr-lbl">FR</span>
+      </button>
+      <a href="index.html" class="btn btn-ghost">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        <span class="lbl-full" data-en="Back to site" data-fr="Retour au site">Back to site</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- DOC -->
+<main class="doc">
+  <div class="wrap">
+    <div class="doc-head">
+      <span class="eyebrow" data-en="Legal" data-fr="Mentions légales">Legal</span>
+      <h1 data-en="Privacy <span class='accent'>Policy</span>" data-fr="Politique de <span class='accent'>confidentialité</span>">Privacy <span class="accent">Policy</span></h1>
+      <p class="updated" data-en="Last updated: June 13, 2026" data-fr="Dernière mise à jour : 13 juin 2026">Last updated: June 13, 2026</p>
+    </div>
+
+    <!-- ===================== ENGLISH ===================== -->
+    <div class="l-en">
+      <p class="intro">This Privacy Policy explains how Parallex Web Studio (“Parallex,” “we,” “us”) collects, uses, and protects personal information when you visit our website or contact us about our services. We keep things plain: we only collect what we need, we tell you why, and we don't sell your information.</p>
+
+      <div class="content">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#p-collect">Information we collect</a></li>
+            <li><a href="#p-use">How we use it</a></li>
+            <li><a href="#p-legal">Consent &amp; legal basis</a></li>
+            <li><a href="#p-share">Sharing &amp; disclosure</a></li>
+            <li><a href="#p-cookies">Cookies &amp; analytics</a></li>
+            <li><a href="#p-retention">How long we keep it</a></li>
+            <li><a href="#p-security">Security</a></li>
+            <li><a href="#p-rights">Your rights</a></li>
+            <li><a href="#p-thirdparty">Third-party links</a></li>
+            <li><a href="#p-changes">Changes &amp; contact</a></li>
+          </ol>
+        </nav>
+
+        <section id="p-collect">
+          <h2><span class="n">01</span> Information we collect</h2>
+          <h3>Information you give us</h3>
+          <p>When you fill out a form on our site or email us, we collect the details you choose to share. That typically includes your <strong>name, email address, phone number,</strong> how you heard about us, and anything you tell us about your business or project.</p>
+          <h3>Information collected automatically</h3>
+          <p>Like most websites, we may collect limited technical data when you visit — such as your approximate location, browser and device type, and how you navigate the pages. Your language preference (English or French) is stored locally in your browser so the site remembers it on your next visit.</p>
+        </section>
+
+        <section id="p-use">
+          <h2><span class="n">02</span> How we use your information</h2>
+          <p>We use the information we collect to:</p>
+          <ul>
+            <li>Respond to your inquiry and schedule or hold a strategy call;</li>
+            <li>Prepare quotes, proposals, and deliver the services you ask for;</li>
+            <li>Communicate with you about your project, including updates and support;</li>
+            <li>Improve our website and understand how visitors use it;</li>
+            <li>Meet our legal and accounting obligations.</li>
+          </ul>
+          <p>We do not use your information for automated decision-making, and we don't send marketing messages unless you've asked us to.</p>
+        </section>
+
+        <section id="p-legal">
+          <h2><span class="n">03</span> Consent &amp; legal basis</h2>
+          <p>We collect and use your personal information with your consent — for example, when you submit a form — and as needed to provide the services you request or to comply with the law. You can withdraw your consent at any time by contacting us, though doing so may mean we can no longer provide certain services.</p>
+          <p>As a business operating in Québec, we handle personal information in line with Québec's <strong>Act respecting the protection of personal information in the private sector (Law 25)</strong> and Canada's <strong>Personal Information Protection and Electronic Documents Act (PIPEDA)</strong>.</p>
+        </section>
+
+        <section id="p-share">
+          <h2><span class="n">04</span> Sharing &amp; disclosure</h2>
+          <p><strong>We do not sell or rent your personal information.</strong> We share it only in these limited situations:</p>
+          <ul>
+            <li><strong>Service providers</strong> who help us operate — for example, hosting, email, scheduling, and analytics tools. They may only use the information to perform services for us.</li>
+            <li><strong>Project platforms</strong> where your site is built or hosted (such as Webflow, WordPress, Shopify, or similar), where relevant to your project.</li>
+            <li><strong>Legal reasons</strong> — when we're required to by law, or to protect our rights, safety, or property.</li>
+          </ul>
+          <p>Some of these providers may store data outside Québec or Canada. Where that's the case, we take reasonable steps to ensure your information receives a comparable level of protection.</p>
+        </section>
+
+        <section id="p-cookies">
+          <h2><span class="n">05</span> Cookies &amp; analytics</h2>
+          <p>We use a small amount of browser storage to remember your language preference, and we may use privacy-respecting analytics to understand which pages are useful and how the site performs. These tools don't identify you personally. You can clear or block browser storage and cookies at any time through your browser settings.</p>
+        </section>
+
+        <section id="p-retention">
+          <h2><span class="n">06</span> How long we keep your information</h2>
+          <p>We keep personal information only as long as we need it for the purpose it was collected — to respond to your inquiry, deliver a project, and meet our legal and accounting obligations. When it's no longer needed, we securely delete or anonymize it.</p>
+        </section>
+
+        <section id="p-security">
+          <h2><span class="n">07</span> How we protect it</h2>
+          <p>We use reasonable technical and organizational measures to protect your information against loss, theft, and unauthorized access — including limiting who can access it and using reputable, secured service providers. No method of transmission over the internet is completely secure, but we work to safeguard your data and to address any incident promptly.</p>
+        </section>
+
+        <section id="p-rights">
+          <h2><span class="n">08</span> Your rights</h2>
+          <p>You have the right to:</p>
+          <ul>
+            <li><strong>Access</strong> the personal information we hold about you;</li>
+            <li><strong>Correct</strong> information that is inaccurate or incomplete;</li>
+            <li><strong>Withdraw your consent</strong> or ask us to stop using your information;</li>
+            <li><strong>Request deletion</strong> of your information, subject to our legal obligations.</li>
+          </ul>
+          <p>To exercise any of these rights, contact us at <a class="inline" href="mailto:contact@parallex.ca">contact@parallex.ca</a>.</p>
+        </section>
+
+        <section id="p-thirdparty">
+          <h2><span class="n">09</span> Third-party links</h2>
+          <p>Our site may link to other websites we don't control. This policy doesn't cover those sites, so we encourage you to review their privacy practices before sharing any information.</p>
+        </section>
+
+        <section id="p-changes">
+          <h2><span class="n">10</span> Changes to this policy &amp; how to reach us</h2>
+          <p>We may update this policy from time to time. When we do, we'll change the “Last updated” date above, and significant changes will be highlighted on this page.</p>
+          <div class="callout">
+            <p><strong>Privacy questions?</strong> Our person responsible for the protection of personal information can be reached at:</p>
+            <p>Parallex Web Studio<br/>
+            Email: <a class="inline" href="mailto:contact@parallex.ca">contact@parallex.ca</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ===================== FRANÇAIS ===================== -->
+    <div class="l-fr">
+      <p class="intro">La présente politique de confidentialité explique comment Studio Web Parallex (« Parallex », « nous ») recueille, utilise et protège vos renseignements personnels lorsque vous visitez notre site ou communiquez avec nous au sujet de nos services. Nous restons simples : nous ne recueillons que le nécessaire, nous vous expliquons pourquoi, et nous ne vendons pas vos renseignements.</p>
+
+      <div class="content">
+        <nav class="toc" aria-label="Table des matières">
+          <h2>Sur cette page</h2>
+          <ol>
+            <li><a href="#f-collect">Renseignements recueillis</a></li>
+            <li><a href="#f-use">Utilisation</a></li>
+            <li><a href="#f-legal">Consentement et fondement</a></li>
+            <li><a href="#f-share">Partage et divulgation</a></li>
+            <li><a href="#f-cookies">Témoins et statistiques</a></li>
+            <li><a href="#f-retention">Durée de conservation</a></li>
+            <li><a href="#f-security">Sécurité</a></li>
+            <li><a href="#f-rights">Vos droits</a></li>
+            <li><a href="#f-thirdparty">Liens externes</a></li>
+            <li><a href="#f-changes">Modifications et contact</a></li>
+          </ol>
+        </nav>
+
+        <section id="f-collect">
+          <h2><span class="n">01</span> Renseignements que nous recueillons</h2>
+          <h3>Renseignements que vous nous fournissez</h3>
+          <p>Lorsque vous remplissez un formulaire sur notre site ou nous écrivez, nous recueillons les renseignements que vous choisissez de partager. Cela comprend généralement votre <strong>nom, votre adresse courriel, votre numéro de téléphone,</strong> la façon dont vous nous avez connus et tout ce que vous nous dites sur votre entreprise ou votre projet.</p>
+          <h3>Renseignements recueillis automatiquement</h3>
+          <p>Comme la plupart des sites, nous pouvons recueillir des données techniques limitées lors de votre visite — comme votre localisation approximative, votre type de navigateur et d'appareil, et votre parcours sur les pages. Votre préférence de langue (français ou anglais) est enregistrée localement dans votre navigateur afin que le site s'en souvienne lors de votre prochaine visite.</p>
+        </section>
+
+        <section id="f-use">
+          <h2><span class="n">02</span> Comment nous utilisons vos renseignements</h2>
+          <p>Nous utilisons les renseignements recueillis pour :</p>
+          <ul>
+            <li>Répondre à votre demande et planifier ou tenir un appel stratégique;</li>
+            <li>Préparer des devis et des propositions, et livrer les services demandés;</li>
+            <li>Communiquer avec vous au sujet de votre projet, y compris les suivis et le soutien;</li>
+            <li>Améliorer notre site et comprendre comment les visiteurs l'utilisent;</li>
+            <li>Respecter nos obligations légales et comptables.</li>
+          </ul>
+          <p>Nous n'utilisons pas vos renseignements à des fins de décision automatisée et nous n'envoyons pas de messages promotionnels, sauf si vous nous l'avez demandé.</p>
+        </section>
+
+        <section id="f-legal">
+          <h2><span class="n">03</span> Consentement et fondement juridique</h2>
+          <p>Nous recueillons et utilisons vos renseignements personnels avec votre consentement — par exemple lorsque vous soumettez un formulaire — et dans la mesure nécessaire pour fournir les services demandés ou respecter la loi. Vous pouvez retirer votre consentement en tout temps en communiquant avec nous, bien que cela puisse nous empêcher de fournir certains services.</p>
+          <p>À titre d'entreprise exerçant au Québec, nous traitons les renseignements personnels conformément à la <strong>Loi sur la protection des renseignements personnels dans le secteur privé (Loi 25)</strong> du Québec et à la <strong>Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE)</strong> du Canada.</p>
+        </section>
+
+        <section id="f-share">
+          <h2><span class="n">04</span> Partage et divulgation</h2>
+          <p><strong>Nous ne vendons ni ne louons vos renseignements personnels.</strong> Nous ne les partageons que dans ces situations limitées :</p>
+          <ul>
+            <li><strong>Fournisseurs de services</strong> qui nous aident à fonctionner — par exemple l'hébergement, le courriel, la prise de rendez-vous et les outils de statistiques. Ils ne peuvent utiliser les renseignements que pour nous rendre service.</li>
+            <li><strong>Plateformes de projet</strong> où votre site est conçu ou hébergé (comme Webflow, WordPress, Shopify ou équivalent), lorsque cela concerne votre projet.</li>
+            <li><strong>Raisons légales</strong> — lorsque la loi l'exige, ou pour protéger nos droits, notre sécurité ou nos biens.</li>
+          </ul>
+          <p>Certains de ces fournisseurs peuvent stocker des données à l'extérieur du Québec ou du Canada. Le cas échéant, nous prenons des mesures raisonnables pour que vos renseignements bénéficient d'une protection comparable.</p>
+        </section>
+
+        <section id="f-cookies">
+          <h2><span class="n">05</span> Témoins et statistiques</h2>
+          <p>Nous utilisons une petite quantité de stockage de navigateur pour mémoriser votre préférence de langue, et nous pouvons utiliser des outils de statistiques respectueux de la vie privée pour comprendre quelles pages sont utiles et comment le site se comporte. Ces outils ne vous identifient pas personnellement. Vous pouvez effacer ou bloquer le stockage et les témoins en tout temps dans les réglages de votre navigateur.</p>
+        </section>
+
+        <section id="f-retention">
+          <h2><span class="n">06</span> Durée de conservation</h2>
+          <p>Nous ne conservons les renseignements personnels que le temps nécessaire à la fin pour laquelle ils ont été recueillis — répondre à votre demande, livrer un projet et respecter nos obligations légales et comptables. Lorsqu'ils ne sont plus nécessaires, nous les supprimons ou les anonymisons de façon sécuritaire.</p>
+        </section>
+
+        <section id="f-security">
+          <h2><span class="n">07</span> Comment nous les protégeons</h2>
+          <p>Nous utilisons des mesures techniques et organisationnelles raisonnables pour protéger vos renseignements contre la perte, le vol et l'accès non autorisé — notamment en limitant qui peut y accéder et en faisant appel à des fournisseurs réputés et sécurisés. Aucune méthode de transmission sur Internet n'est totalement sûre, mais nous nous efforçons de protéger vos données et de réagir rapidement à tout incident.</p>
+        </section>
+
+        <section id="f-rights">
+          <h2><span class="n">08</span> Vos droits</h2>
+          <p>Vous avez le droit de :</p>
+          <ul>
+            <li><strong>Accéder</strong> aux renseignements personnels que nous détenons à votre sujet;</li>
+            <li><strong>Corriger</strong> des renseignements inexacts ou incomplets;</li>
+            <li><strong>Retirer votre consentement</strong> ou nous demander de cesser d'utiliser vos renseignements;</li>
+            <li><strong>Demander la suppression</strong> de vos renseignements, sous réserve de nos obligations légales.</li>
+          </ul>
+          <p>Pour exercer l'un de ces droits, écrivez-nous à <a class="inline" href="mailto:contact@parallex.ca">contact@parallex.ca</a>.</p>
+        </section>
+
+        <section id="f-thirdparty">
+          <h2><span class="n">09</span> Liens vers des sites externes</h2>
+          <p>Notre site peut renvoyer à d'autres sites que nous ne contrôlons pas. La présente politique ne couvre pas ces sites; nous vous invitons à consulter leurs pratiques de confidentialité avant d'y partager des renseignements.</p>
+        </section>
+
+        <section id="f-changes">
+          <h2><span class="n">10</span> Modifications et comment nous joindre</h2>
+          <p>Nous pouvons mettre à jour cette politique de temps à autre. Le cas échéant, nous modifierons la date de « Dernière mise à jour » ci-dessus, et les changements importants seront signalés sur cette page.</p>
+          <div class="callout">
+            <p><strong>Des questions sur la confidentialité ?</strong> Notre responsable de la protection des renseignements personnels peut être joint à :</p>
+            <p>Studio Web Parallex<br/>
+            Courriel : <a class="inline" href="mailto:contact@parallex.ca">contact@parallex.ca</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-inner">
+    <span data-en="© 2026 Parallex Web Studio. All rights reserved." data-fr="© 2026 Studio Web Parallex. Tous droits réservés.">© 2026 Parallex Web Studio. All rights reserved.</span>
+    <span class="links">
+      <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="privacy.html" data-en="Privacy" data-fr="Confidentialité">Privacy</a>
+      <a href="terms.html" data-en="Terms" data-fr="Conditions">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const STR = document.querySelectorAll('[data-en]');
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    STR.forEach(el => { const v = el.dataset[lang]; if (v != null) el.innerHTML = v; });
+    document.querySelector('.en-lbl').classList.toggle('on', lang === 'en');
+    document.querySelector('.fr-lbl').classList.toggle('on', lang === 'fr');
+    try { localStorage.setItem('parallex-lang', lang); } catch(e){}
+  }
+  const saved = (() => { try { return localStorage.getItem('parallex-lang'); } catch(e){ return null; } })();
+  setLang(saved === 'fr' ? 'fr' : 'en');
+  document.getElementById('langToggle').addEventListener('click', () => {
+    setLang(document.documentElement.getAttribute('data-lang') === 'en' ? 'fr' : 'en');
+  });
+</script>
+</body>
+</html>
