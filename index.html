@@ -440,7 +440,7 @@
     .stat span{margin-top:auto;padding-top:10px}
     .phone-row{grid-template-columns:80px 1fr}
     .hero h1{font-size:34px}
-    .phone-wrap,.faq-aside{display:none}
+    .phone-wrap,.faq-aside,.hero-email{display:none}
     .logos{justify-content:center;gap:16px 24px}
     .logos .lg{font-size:16px}
     #why{padding-top:10px}
@@ -456,7 +456,11 @@
   }
   /* phones in landscape (short viewport) — hide the device mockups there too */
   @media (orientation:landscape) and (max-height:540px){
-    .phone-wrap,.faq-aside,.foot-brand,.foot-nav{display:none}
+    .phone-wrap,.faq-aside,.foot-brand,.foot-nav,.hero-email{display:none}
+    .nav-inner{height:60px}
+    .brand-name{font-size:24px}
+    .brand-sub{margin-top:4px}
+    .brand-sub-text{font-size:9px;letter-spacing:.26em}
     .mobile-showcase{display:block;padding:24px 0 40px;margin-top:0}
     .mobile-showcase .sec-head{margin-bottom:54px}
     .ms-row{display:flex;justify-content:center;align-items:center}
