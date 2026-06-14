@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
     --bg:#0F1A2E; --bg1:#13213A; --bg2:#172A46;
@@ -19,6 +19,8 @@
     --muted:#7385A0; --body:#A6B6CF;
     --fh:'Dela Gothic One',sans-serif;
     --fb:'DM Sans',sans-serif;
+    --fserif:'Playfair Display',Georgia,serif;
+    --fela:'Jost',sans-serif;
     --px:64px; --px-m:28px; --px-s:20px;
     --py:74px; --py-m:54px; --py-s:40px;
     --maxw:1200px;
@@ -334,6 +336,26 @@
   .site-h{font-family:var(--fh);font-size:22px;line-height:1.04;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
   .site-btn{font-family:var(--fb);font-size:9.5px;font-weight:600;color:#fff;background:linear-gradient(135deg,#4d8bff,#1f4fd6);padding:8px 15px;border-radius:8px;margin-top:5px;box-shadow:0 8px 18px -8px rgba(77,141,255,.85)}
 
+  /* sample-site identities — each mock reads as a different brand, distinct from Parallex and from each other */
+  /* Restaurant: warm, elegant, serif, centered */
+  .site.resto .site-nav{justify-content:center;top:30px}
+  .site.resto .site-burger{display:none}
+  .site.resto .site-logo{font-family:var(--fserif);font-weight:600;font-size:14px;letter-spacing:.06em;color:#f3e7cf}
+  .site.resto .site-shade{background:linear-gradient(180deg,rgba(30,18,8,.5) 0%,rgba(30,18,8,0) 28%,rgba(24,14,6,.15) 52%,rgba(18,10,4,.92) 100%)}
+  .site.resto .site-copy{align-items:center;text-align:center;left:16px;right:16px;bottom:30px;gap:10px}
+  .site.resto .site-eyebrow{color:#d8b98a;letter-spacing:.28em;font-size:7.5px}
+  .site.resto .site-h{font-family:var(--fserif);font-style:italic;font-weight:600;font-size:23px;color:#fdf6ea;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+  .site.resto .site-btn{background:transparent;border:1px solid rgba(233,216,180,.85);color:#f3e7cf;border-radius:0;text-transform:uppercase;letter-spacing:.16em;font-size:8px;padding:8px 16px;box-shadow:none;margin-top:6px}
+  /* Architecture: couture-light (Jost) — airy tracked caps, underlined link */
+  .site.arch .site-logo{font-family:var(--fela);font-weight:400;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:#fff}
+  .site.arch .site-shade{background:linear-gradient(180deg,rgba(8,10,14,.5) 0%,rgba(8,10,14,0) 26%,rgba(8,10,14,.06) 52%,rgba(6,8,12,.92) 100%)}
+  .site.arch .site-eyebrow{font-family:var(--fela);font-weight:400;color:rgba(255,255,255,.72);letter-spacing:.4em;font-size:7.5px}
+  .site.arch .site-h{font-family:var(--fela);font-weight:300;font-size:22px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+  .site.arch .site-btn{background:none;border:none;border-bottom:1px solid rgba(255,255,255,.7);color:#fff;border-radius:0;text-transform:uppercase;letter-spacing:.3em;font-weight:400;font-family:var(--fela);font-size:8.5px;padding:0 0 4px;box-shadow:none;margin-top:8px}
+
+  /* mobile-only phones showcase (Option B) — hidden on desktop/tablet */
+  .mobile-showcase{display:none}
+
   /* ---------- CONNECT / CTA ---------- */
   .connect{
     border:1px solid var(--bd);border-radius:28px;overflow:hidden;position:relative;
@@ -418,6 +440,12 @@
     .connect{padding:30px 18px}
     .cpoint{font-size:13.5px;gap:10px}
     .form-card{padding:24px 18px}
+    .mobile-showcase{display:block}
+    .mobile-showcase .sec-head{margin-bottom:10px}
+    .ms-row{display:flex;justify-content:center;align-items:center}
+    .mobile-showcase .phone{width:300px}
+    .mobile-showcase .phone:first-child{transform:scale(.46) rotate(-6deg);margin:-168px -54px -168px -28px;z-index:2}
+    .mobile-showcase .phone:last-child{transform:scale(.46) rotate(6deg);margin:-168px -28px -168px -54px}
   }
   /* phones in landscape (short viewport) — hide the device mockups there too */
   @media (orientation:landscape) and (max-height:540px){
@@ -563,7 +591,7 @@
           <div class="phone">
             <div class="notch"></div>
             <div class="screen mock">
-              <div class="site" aria-hidden="true">
+              <div class="site resto" aria-hidden="true">
                 <img class="site-hero" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600&h=1240" alt="" />
                 <div class="site-shade"></div>
                 <div class="site-nav">
@@ -576,6 +604,48 @@
                   <span class="site-btn" data-en="Reserve a table" data-fr="Réserver une table">Reserve a table</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE SHOWCASE (Option B — phone mockups, mobile only) -->
+<section class="mobile-showcase">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow" style="justify-content:center" data-en="Our Work" data-fr="Nos réalisations">Our Work</span>
+      <h2 data-en="Sites we've <span class='accent'>built</span>" data-fr="Des sites <span class='accent'>conçus par nous</span>">Sites we've <span class="accent">built</span></h2>
+    </div>
+    <div class="ms-row">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen mock">
+          <div class="site resto" aria-hidden="true">
+            <img class="site-hero" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600&h=1240" alt="" />
+            <div class="site-shade"></div>
+            <div class="site-nav"><span class="site-logo">MAISON ROUX</span><span class="site-burger"><i></i><i></i><i></i></span></div>
+            <div class="site-copy">
+              <span class="site-eyebrow" data-en="RESTAURANT · BISTRO" data-fr="RESTAURANT · BISTRO">RESTAURANT · BISTRO</span>
+              <span class="site-h" data-en="A table worth the trip" data-fr="Une table qui vaut le détour">A table worth the trip</span>
+              <span class="site-btn" data-en="Reserve a table" data-fr="Réserver une table">Reserve a table</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen mock">
+          <div class="site arch" aria-hidden="true">
+            <img class="site-hero" src="https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&q=80&w=560&h=1160" alt="" />
+            <div class="site-shade"></div>
+            <div class="site-nav"><span class="site-logo">NORDHAUS</span><span class="site-burger"><i></i><i></i><i></i></span></div>
+            <div class="site-copy">
+              <span class="site-eyebrow" data-en="ARCHITECTURE STUDIO" data-fr="STUDIO D'ARCHITECTURE">ARCHITECTURE STUDIO</span>
+              <span class="site-h" data-en="Spaces that breathe" data-fr="Des espaces qui respirent">Spaces that breathe</span>
+              <span class="site-btn" data-en="View projects" data-fr="Voir les projets">View projects</span>
             </div>
           </div>
         </div>
@@ -660,7 +730,7 @@
         <div class="phone">
           <div class="notch"></div>
           <div class="screen mock">
-            <div class="site" aria-hidden="true">
+            <div class="site arch" aria-hidden="true">
               <img class="site-hero" src="https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&q=80&w=560&h=1160" alt="" />
               <div class="site-shade"></div>
               <div class="site-nav">
